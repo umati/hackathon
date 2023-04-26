@@ -1,0 +1,39 @@
+###########################
+# UaModeler Project File  #
+# Generated at 26.04.2023 #
+###########################
+
+PROJECTNAME = umati_Brownfield_UA1.05
+
+TEMPLATESET = ($TEMPLATES)/modeling/v1_0/t0/modeling.tt2set
+
+MODELS += Opc.Ua.NodeSet2.ua \
+    Opc.Ua.Di.NodeSet2.ua \
+    Opc.Ua.IA.NodeSet2.ua \
+    Opc.Ua.Machinery.NodeSet2.ua \
+    Opc.Ua.MachineTool.NodeSet2.ua \
+    umati_brownfield_ua1.05.ua
+
+COLORS = Opc.Ua.NodeSet2.ua: #0000ff\
+    Opc.Ua.Di.NodeSet2.ua: #0000ff\
+    Opc.Ua.IA.NodeSet2.ua: #0000ff\
+    Opc.Ua.Machinery.NodeSet2.ua: #0000ff\
+    Opc.Ua.MachineTool.NodeSet2.ua: #0000ff\
+    umati_brownfield_ua1.05.ua: #008000
+
+OUTPUTPATH = ../../../../../Users/ggörisch
+
+GENERATE += umati_brownfield_ua1.05.ua
+
+LOCKEDMODELS += Opc.Ua.NodeSet2.ua \
+    Opc.Ua.Di.NodeSet2.ua \
+    Opc.Ua.IA.NodeSet2.ua \
+    Opc.Ua.Machinery.NodeSet2.ua \
+    Opc.Ua.MachineTool.NodeSet2.ua
+
+NODEACCESSINFOROLES += Administrator \
+    SecurityAdmin \
+    ConfigurationAdmin \
+    Operator \
+    Observer
+
