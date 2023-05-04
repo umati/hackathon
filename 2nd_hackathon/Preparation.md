@@ -27,28 +27,31 @@ Knowledge about your equipment you want to retrofit.
 
 ## Planned Agenda
 
-Monday 15.05.2023
+### Monday 15.05.2023
+
 Community evening (self paying)
 
-Tuesday 16.05.2023
-8:30 Welcoming, Introduction round
-9:00 Impulse Talk, about OPC UA for Machine Tools, umati
-9:30 Introduction of available and brought retrofitting equipment and test machines
-10:00 Group work with breakout sessions.
-13:00 Fingerfood Lunch
-14:00 Coding and Hacking
-18:00 Recap of the day
-18:30 Joint barbecue
-Hacking and Networking
-22:00 End Day 1
+### Tuesday 16.05.2023
 
-Wednesday 17.05.2023
-8:30 Sync and Joint Start
-9:00 Hacking, documentation and preparation of the results
-11:00 Learnings and results presentation of the groups
-13:00 Lunch
-13:30 Recap and Feedback round
-14:00 End of Event
+- 8:30 Welcoming, Introduction round
+- 9:00 Impulse Talk, about OPC UA for Machine Tools, umati
+- 9:30 Introduction of available and brought retrofitting equipment and test machines
+- 10:00 Group work with breakout sessions.
+- 13:00 Fingerfood Lunch
+- 14:00 Coding and Hacking
+- 18:00 Recap of the day
+- 18:30 Joint barbecue
+- Hacking and Networking
+- 22:00 End Day 1
+
+### Wednesday 17.05.2023
+
+- 8:30 Sync and Joint Start
+- 9:00 Hacking, documentation and preparation of the results
+- 11:00 Learnings and results presentation of the groups
+- 13:00 Lunch
+- 13:30 Recap and Feedback round
+- 14:00 End of Event
 
 ## Documentation
 
