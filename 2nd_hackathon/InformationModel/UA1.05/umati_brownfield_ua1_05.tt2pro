@@ -1,6 +1,6 @@
 ###########################
 # UaModeler Project File  #
-# Generated at 26.04.2023 #
+# Generated at 04.05.2023 #
 ###########################
 
 PROJECTNAME = umati_Brownfield_UA1.05
@@ -25,8 +25,7 @@ OUTPUTPATH = ../../../../../Users/ggörisch
 
 GENERATE += umati_brownfield_ua1.05.ua
 
-LOCKEDMODELS += Opc.Ua.NodeSet2.ua \
-    Opc.Ua.Di.NodeSet2.ua \
+LOCKEDMODELS += Opc.Ua.Di.NodeSet2.ua \
     Opc.Ua.IA.NodeSet2.ua \
     Opc.Ua.Machinery.NodeSet2.ua \
     Opc.Ua.MachineTool.NodeSet2.ua
