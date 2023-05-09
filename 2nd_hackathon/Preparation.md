@@ -35,8 +35,9 @@ Community evening (self paying)
 
 - 8:30 Welcoming, Introduction round
 - 9:00 Impulse Talk, about OPC UA for Machine Tools, umati
-- 9:30 Introduction of available and brought retrofitting equipment and test machines
-- 10:00 Group work with breakout sessions.
+- 9:30 Talk: Comprehensible OPC UA for Devs in 10 minutes
+- 9:40 Introduction of available and brought retrofitting equipment and test machines
+- 10:10 Group work with breakout sessions.
 - 13:00 Fingerfood Lunch
 - 14:00 Coding and Hacking
 - 18:00 Recap of the day
