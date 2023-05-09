@@ -44,7 +44,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="iNEMYQcfvWwxvZSAaB4Ndw==" Version="1.6.8"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="52WS598CkVXMZ1CkH+Zelg==" Version="1.6.8"/>
         </Extension>
     </Extensions>
     <UAObject NodeId="ns=1;i=5004" BrowseName="1:MachineTool_brownfield">
@@ -339,10 +339,10 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=5;i=1006</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6031</Reference>
-            <Reference ReferenceType="HasOrderedComponent" IsForward="false">ns=1;i=5015</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6032</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6033</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6034</Reference>
+            <Reference ReferenceType="HasOrderedComponent" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5014" NodeId="ns=1;i=6031" BrowseName="NumberInList" AccessLevel="3">
