@@ -30,8 +30,7 @@ GENERATE += umati_PCM_ua1.05.ua
 LOCKEDMODELS += Opc.Ua.Di.NodeSet2.ua \
     Opc.Ua.IA.NodeSet2.ua \
     Opc.Ua.Machinery.NodeSet2.ua \
-    Opc.Ua.MachineTool.NodeSet2.ua \
-    Opc.Ua.PCM.Nodeset2.ua
+    Opc.Ua.MachineTool.NodeSet2.ua
 
 NODEACCESSINFOROLES += Administrator \
     SecurityAdmin \
