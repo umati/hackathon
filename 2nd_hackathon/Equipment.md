@@ -6,6 +6,6 @@
 
 - Prime Box Pico with FLECS (Provided by Schubert System Elektronik GmbH)
 
-- Pressure sensor and compressor (Provided by IFM)
+- Pressure sensor and compressor ; maybe also vibration sensor and stacklight (Provided by IFM)
 
 - ... (Provided by SALZ Automation)
