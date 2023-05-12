@@ -1,0 +1,41 @@
+###########################
+# UaModeler Project File  #
+# Generated at 12.05.2023 #
+###########################
+
+PROJECTNAME = umati_PCM_UA1.05
+
+TEMPLATESET = ($TEMPLATES)/modeling/v1_0/t0/modeling.tt2set
+
+MODELS += Opc.Ua.NodeSet2.ua \
+    Opc.Ua.Di.NodeSet2.ua \
+    Opc.Ua.IA.NodeSet2.ua \
+    Opc.Ua.Machinery.NodeSet2.ua \
+    Opc.Ua.MachineTool.NodeSet2.ua \
+    Opc.Ua.PCM.Nodeset2.ua \
+    umati_PCM_ua1.05.ua
+
+COLORS = Opc.Ua.NodeSet2.ua: #0000ff\
+    Opc.Ua.Di.NodeSet2.ua: #0000ff\
+    Opc.Ua.IA.NodeSet2.ua: #0000ff\
+    Opc.Ua.Machinery.NodeSet2.ua: #0000ff\
+    Opc.Ua.MachineTool.NodeSet2.ua: #0000ff\
+    Opc.Ua.PCM.Nodeset2.ua: #0000ff\
+    umati_PCM_ua1.05.ua: #0000ff
+
+OUTPUTPATH = ../../../../../Users/gg�risch
+
+GENERATE += umati_PCM_ua1.05.ua
+
+LOCKEDMODELS += Opc.Ua.Di.NodeSet2.ua \
+    Opc.Ua.IA.NodeSet2.ua \
+    Opc.Ua.Machinery.NodeSet2.ua \
+    Opc.Ua.MachineTool.NodeSet2.ua \
+    Opc.Ua.PCM.Nodeset2.ua
+
+NODEACCESSINFOROLES += Administrator \
+    SecurityAdmin \
+    ConfigurationAdmin \
+    Operator \
+    Observer
+
