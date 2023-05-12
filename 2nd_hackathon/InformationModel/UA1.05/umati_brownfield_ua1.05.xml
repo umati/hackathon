@@ -8,7 +8,7 @@
         <Uri>http://opcfoundation.org/UA/IA/</Uri>
     </NamespaceUris>
     <Models>
-        <Model ModelUri="http://umati.org/UA/1.5/brownfield/" PublicationDate="2023-05-09T08:09:39Z" Version="0.2.0">
+        <Model ModelUri="http://umati.org/UA/1.5/brownfield/" PublicationDate="2023-05-12T12:55:09Z" Version="0.2.1">
             <RequiredModel ModelUri="http://opcfoundation.org/UA/" PublicationDate="2022-11-01T00:00:00Z" Version="1.05.02"/>
             <RequiredModel ModelUri="http://opcfoundation.org/UA/DI/" PublicationDate="2022-11-03T00:00:00Z" Version="1.04.0"/>
             <RequiredModel ModelUri="http://opcfoundation.org/UA/IA/" PublicationDate="2022-06-15T00:00:00Z" Version="1.01.2"/>
@@ -44,7 +44,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="CyAEb4YKJYPT0qFyx8c/bw==" Version="1.6.8"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="SKox5nSVUjnvijik/FgaUw==" Version="1.6.8"/>
         </Extension>
     </Extensions>
     <UAObject NodeId="ns=1;i=5004" BrowseName="1:MachineTool_brownfield">
@@ -364,7 +364,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5018</Reference>
         </References>
         <Value>
-            <uax:Int32>0</uax:Int32>
+            <uax:Int32>1</uax:Int32>
         </Value>
     </UAVariable>
     <UAVariable DataType="SignalModeLight" ParentNodeId="ns=1;i=5018" NodeId="ns=1;i=6036" BrowseName="5:SignalMode" AccessLevel="3">
@@ -577,7 +577,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5001</Reference>
         </References>
         <Value>
-            <uax:DateTime>2023-05-09T08:09:39Z</uax:DateTime>
+            <uax:DateTime>2023-05-12T12:55:09Z</uax:DateTime>
         </Value>
     </UAVariable>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6003" BrowseName="NamespaceUri">
@@ -597,7 +597,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5001</Reference>
         </References>
         <Value>
-            <uax:String>0.2.0</uax:String>
+            <uax:String>0.2.1</uax:String>
         </Value>
     </UAVariable>
     <UAVariable DataType="IdType" ParentNodeId="ns=1;i=5001" ValueRank="1" NodeId="ns=1;i=6005" ArrayDimensions="0" BrowseName="StaticNodeIdTypes">
