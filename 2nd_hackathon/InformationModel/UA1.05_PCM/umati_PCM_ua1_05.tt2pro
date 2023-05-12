@@ -1,6 +1,6 @@
 ###########################
 # UaModeler Project File  #
-# Generated at 11.05.2023 #
+# Generated at 12.05.2023 #
 ###########################
 
 PROJECTNAME = umati_PCM_UA1.05
@@ -30,7 +30,8 @@ GENERATE += umati_PCM_ua1.05.ua
 LOCKEDMODELS += Opc.Ua.Di.NodeSet2.ua \
     Opc.Ua.IA.NodeSet2.ua \
     Opc.Ua.Machinery.NodeSet2.ua \
-    Opc.Ua.MachineTool.NodeSet2.ua
+    Opc.Ua.MachineTool.NodeSet2.ua \
+    Opc.Ua.PCM.Nodeset2.ua
 
 NODEACCESSINFOROLES += Administrator \
     SecurityAdmin \
