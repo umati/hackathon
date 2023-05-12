@@ -13,3 +13,7 @@ This [presentation](./Presentations/20221115_OPC40501-1_Introduction_Information
 ## Sample instance for brownfield
 
 ![Brownfield-Instance](InformationModel/MachineTool_brownfield.png)
+
+## Sample instance for PowerComsumptionMonitoring
+
+![PCM-Instance](InformationModel/MachineTool_PCM.png)
