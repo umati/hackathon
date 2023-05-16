@@ -1,8 +1,8 @@
 import { Injectable, ConsoleLogger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { OpcuaServerConfig, OpcuaServerInfoConfig } from 'config/opcua.config';
-import { OPCUAServer } from 'node-opcua';
-import { catchError, from, map, mergeMap, switchMap, tap } from 'rxjs';
+import { AttributeIds, DataType, OPCUAServer, UAVariable } from 'node-opcua';
+import { catchError, from, tap } from 'rxjs';
 
 @Injectable()
 export class OpcuaServerService {
@@ -33,9 +33,9 @@ export class OpcuaServerService {
 
   initialize() {
     return from(this._server.initialize()).pipe(
-      tap(() =>
-        this._logger.log('server initialized', OpcuaServerService.name),
-      ),
+      tap(() => {
+        this._logger.log('server initialized', OpcuaServerService.name);
+      }),
       catchError((error) => {
         this._logger.error(error, OpcuaServerService.name);
         throw error;
@@ -62,5 +62,34 @@ export class OpcuaServerService {
         );
       }),
     );
+  }
+
+  readSingleNode(namespace: number, nodeId: number) {
+    const node = this._server.engine.addressSpace.findNode(
+      this._createNodeLike(namespace, nodeId),
+    );
+    return node.readAttribute(null, AttributeIds.Value);
+  }
+
+  writeSingleNode(
+    namespace: number,
+    nodeId: number,
+    dataType: DataType,
+    value: any,
+  ) {
+    return this.getNode(namespace, nodeId).setValueFromSource({
+      dataType,
+      value,
+    });
+  }
+
+  getNode(namespace, nodeId) {
+    return this._server.engine.addressSpace.findNode(
+      this._createNodeLike(namespace, nodeId),
+    ) as UAVariable;
+  }
+
+  private _createNodeLike(namespace: number, nodeId: number) {
+    return `ns=${namespace};i=${nodeId}`;
   }
 }
