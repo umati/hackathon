@@ -47,7 +47,7 @@ export class OpcuaFacadeService {
 
   initMqtt() {
     return from(this._mqtt.connectClient('mqtt://192.168.1.17:1883')).pipe(
-      switchMap(() => from(this._mqtt.subscribe('Brownie/#'))),
+      switchMap(() => from(this._mqtt.subscribe('brownie/#'))),
       switchMap(() =>
         from(
           this._mqtt.listenToMessages((topic, message) => {
