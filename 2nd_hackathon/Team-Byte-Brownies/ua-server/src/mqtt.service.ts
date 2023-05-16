@@ -23,6 +23,10 @@ export class MqttService {
     this._logger.setContext(MqttService.name);
   }
 
+  async onApllicationShutdown() {
+    await this.disconnectClient();
+  }
+
   async connectClient(brokerURL: string) {
     this._client = await connectAsync(brokerURL);
   }
