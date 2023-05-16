@@ -9,6 +9,6 @@ export class Defaults {
     'Opc.Ua.IA.NodeSet2.xml',
     'Opc.Ua.Machinery.NodeSet2.xml',
     'Opc.Ua.MachineTool.NodeSet2.xml',
-    'umati_brownfield_ua1.05.xml',
+    'byte_brownie_ua1.05.xml',
   ];
 }
