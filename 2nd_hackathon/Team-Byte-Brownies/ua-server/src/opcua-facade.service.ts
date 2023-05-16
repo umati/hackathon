@@ -14,7 +14,7 @@ import {
 import { DataType, coerceLocalizedText } from 'node-opcua';
 import { read } from 'fs';
 import { MqttService } from './mqtt.service';
-import { Signal } from './Signal';
+import { Signal } from './signal';
 
 @Injectable()
 export class OpcuaFacadeService {
