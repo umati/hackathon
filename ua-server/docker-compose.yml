@@ -18,7 +18,7 @@ services:
     image: cw.opcua.umati.server:latest
     environment:
       - TZ=Europe/Amsterdam
-      # - OPCUA_SERVER_HOST=localhostF
+      # - OPCUA_SERVER_HOST=localhost
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
