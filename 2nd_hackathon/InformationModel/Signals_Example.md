@@ -12,6 +12,7 @@
 | Monitoring/Channel1/FeedOverride/EURange | [0-150] | static variable in OPC UA Server | Machine Controller |
 | Monitoring/Channel1/Name | "Channel 1" | Machine Controller (if variable during runtime) or static variable in OPC UA Server| Machine Controller |
 | Monitoring/MachineTool/OperationMode| 1/Automatic | Enum Value | Machine Controller (if variable during runtime) or static variable in OPC UA Server |
+| Monitoring/MachineTool/PowerOnDuration| 4287 | counts up by 1 every hour | Can be realized in OPC UA Server, if not available from Machine. Save to storage, e.g. of the OPC UA Server (shall not be reset on restart) |
 | Monitoring/Spindle1/IsRotating | True  | From Source | Machine Controller |
 | Monitoring/Spindle1/Name| "Spindle 1" | Machine Controller (if variable) or static variable in OPC UA Server | Machine Controller |
 | Production/ActiveProgram/Name | "Program1" | Machine Controller (if variable) or static variable in OPC UA Server | Machine Controller |
@@ -28,6 +29,7 @@
 | Identification/ProductInstanceURI | "http://me.com/001" | static variable in OPC UA Server | Nameplate or creativity |
 | Identification/SerialNumber | 001 | static variable in OPC UA Server | Nameplate or creativity |
 | Monitoring/MachineTool/OperationMode | 1/Automatic | Enum Value | Static variable in OPC UA Server |
+| Monitoring/MachineTool/PowerOnDuration| 5 | counts up by 1 every hour | Can be realized in OPC UA Server, if not available from Machine. Save to storage, e.g. of the OPC UA Server (shall not be reset on restart) |
 | Monitoring/Spindle1/IsRotating | True  | From Source | Machine Controller |
 | Monitoring/Spindle1/Name| "Spindle 1" | static variable in OPC UA Server | Machine Controller |
 | Monitoring/Stacklight/StacklightMode | Segmented | enum value | static |
