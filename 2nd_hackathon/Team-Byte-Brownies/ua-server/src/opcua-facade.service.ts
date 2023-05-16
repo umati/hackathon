@@ -14,6 +14,7 @@ import {
 import { DataType, coerceLocalizedText } from 'node-opcua';
 import { read } from 'fs';
 import { MqttService } from './mqtt.service';
+import { Signal } from './Signal';
 
 @Injectable()
 export class OpcuaFacadeService {
@@ -49,18 +50,47 @@ export class OpcuaFacadeService {
     return from(this._mqtt.connectClient('mqtt://192.168.1.17:1883')).pipe(
       switchMap(() => from(this._mqtt.subscribe('brownie/#'))),
       switchMap(() =>
-        from(
-          this._mqtt.listenToMessages((topic, message) => {
-            const buffer = Buffer.from(message, 'binary');
-            this._logger.log(
-              `Received a message of topic ${topic} and content ${buffer.toString(
-                'hex',
-              )}`,
-            );
-          }),
-        ),
+        from(this._mqtt.listenToMessages(this._handleMqttMessages)),
       ),
     );
+  }
+
+  private _handleMqttMessages = (topic: string, message) => {
+    this._handleValues(
+      this._getSignal(topic),
+      !!Buffer.from(message, 'binary').readInt8(),
+    );
+  };
+
+  _handleValues(signal: Signal, value: boolean) {
+    switch (signal) {
+      case Signal.SteuerungEin:
+        console.log(signal, value);
+        break;
+      case Signal.Notaus:
+        console.log(signal, value);
+        break;
+      case Signal.EnergieEin:
+        console.log(signal, value);
+        break;
+      case Signal.SpindelEin:
+        console.log(signal, value);
+        break;
+      case Signal.StartLader:
+        console.log(signal, value);
+        break;
+      case Signal.ZyklusStart:
+        console.log(signal, value);
+        break;
+      case Signal.ZyklusStopp:
+        console.log(signal, value);
+        break;
+    }
+  }
+
+  _getSignal(topic: string) {
+    const parts = topic.split('/');
+    return parseInt(parts[2], 10) as Signal;
   }
 
   private _initialOverwrites() {

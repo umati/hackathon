@@ -5,17 +5,6 @@ import {
   connectAsync,
 } from 'async-mqtt';
 
-enum Signals {
-  SteuerungEin = 1,
-  Notaus = 3,
-  EnergieEin = 5,
-  SpindelEin = 6,
-  WerkzeugSpindelEin = 6,
-  ZyklusStopp = 9,
-  ZyklusStart = 10,
-  StartLader = 14,
-}
-
 @Injectable()
 export class MqttService {
   private _client: AsyncMqttClient;
@@ -62,6 +51,9 @@ export class MqttService {
   }
 
   async listenToMessages(callback: (topic: string, message: any) => any) {
-    this._client.on('message', callback);
+    this._client.on('message', (topic, message) => {
+      console.log('original', topic, message);
+      return callback(topic, message);
+    });
   }
 }
