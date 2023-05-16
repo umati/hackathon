@@ -22,7 +22,9 @@ async function bootstrap() {
 
     await mqttService.connectClient('mqtt://localhost:1883');
     await mqttService.subscribe('Hello/World');
+    await mqttService.listenToMessages();
     await mqttService.publish('Hello/World', 'Bye World');
+    await mqttService.publish('Hello/World', 'Bye World22');
     await mqttService.disconnectClient();
 
   process.on('SIGINT', async () => await app.close());

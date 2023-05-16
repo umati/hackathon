@@ -7,7 +7,6 @@ export class MqttService {
     private _client: AsyncMqttClient;
     constructor(private readonly _logger: ConsoleLogger, private _opcuaService: OpcuaServerService) {
         this._logger.setContext(MqttService.name);
-        //this._initializeListeners();
     }
 
    async connectClient(brokerURL: string) {
@@ -30,10 +29,13 @@ export class MqttService {
 
     async subscribe(topic: string, options?: IClientSubscribeOptions) {
         if(this._client.connected){
-            let grants = await this._client.subscribe(topic, options);
-            grants.forEach(grant => {
-                console.log(grant);
-            })
+            await this._client.subscribe(topic, options);
         }
+    }
+    
+    async listenToMessages(){
+        this._client.on('message', (topic, message) => {
+            this._logger.warn(`Received a message of topic: ${topic}, and message: ${message}`);
+        })
     }
 }
