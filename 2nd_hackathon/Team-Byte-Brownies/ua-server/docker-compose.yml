@@ -1,0 +1,35 @@
+services:
+  umati.nodered:
+    image: nodered/node-red:latest
+
+    environment:
+      - TZ=Europe/Amsterdam
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - '9000:1880'
+      - '9001:9001'
+    networks:
+      - umati.hackathon
+    volumes:
+      - node-red-data:/data
+
+  umati.server:
+    image: cw.opcua.umati.server:latest
+    environment:
+      - TZ=Europe/Amsterdam
+      # - OPCUA_SERVER_HOST=localhost
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - '4334:4334'
+    networks:
+      - umati.hackathon
+    volumes:
+      - ./nodeset:/usr/src/app/nodeset
+
+volumes:
+  node-red-data:
+
+networks:
+  umati.hackathon:
