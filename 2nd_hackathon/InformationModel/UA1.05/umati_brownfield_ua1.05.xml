@@ -8,7 +8,7 @@
         <Uri>http://opcfoundation.org/UA/IA/</Uri>
     </NamespaceUris>
     <Models>
-        <Model ModelUri="http://umati.org/UA/1.5/brownfield/" PublicationDate="2023-05-12T12:55:09Z" Version="0.2.1">
+        <Model ModelUri="http://umati.org/UA/1.5/brownfield/" PublicationDate="2023-05-16T15:11:27Z" Version="0.2.2">
             <RequiredModel ModelUri="http://opcfoundation.org/UA/" PublicationDate="2022-11-01T00:00:00Z" Version="1.05.02"/>
             <RequiredModel ModelUri="http://opcfoundation.org/UA/DI/" PublicationDate="2022-11-03T00:00:00Z" Version="1.04.0"/>
             <RequiredModel ModelUri="http://opcfoundation.org/UA/IA/" PublicationDate="2022-06-15T00:00:00Z" Version="1.01.2"/>
@@ -44,7 +44,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="SKox5nSVUjnvijik/FgaUw==" Version="1.6.8"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="6huf1XkZlb2EcoYb9xB+UA==" Version="1.6.8"/>
         </Extension>
     </Extensions>
     <UAObject NodeId="ns=1;i=5004" BrowseName="1:MachineTool_brownfield">
@@ -270,6 +270,7 @@
         <DisplayName>Stacklight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=5;i=1002</Reference>
+            <Reference ReferenceType="HasOrderedComponent">ns=1;i=5013</Reference>
             <Reference ReferenceType="HasOrderedComponent">ns=1;i=5016</Reference>
             <Reference ReferenceType="HasOrderedComponent">ns=1;i=5018</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5007</Reference>
@@ -277,6 +278,62 @@
             <Reference ReferenceType="HasOrderedComponent">ns=1;i=5017</Reference>
         </References>
     </UAObject>
+    <UAObject ParentNodeId="ns=1;i=5015" NodeId="ns=1;i=5013" BrowseName="1:Blue">
+        <DisplayName>Blue</DisplayName>
+        <Description Locale="en">Base class for elements in a stacklight.</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=5;i=1006</Reference>
+            <Reference ReferenceType="HasOrderedComponent" IsForward="false">ns=1;i=5015</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6038</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6039</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6040</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6041</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6038" BrowseName="NumberInList">
+        <DisplayName>NumberInList</DisplayName>
+        <Description Locale="en">Enumerate the stacklight elements counting upwards beginning from the base of the stacklight.</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5013</Reference>
+        </References>
+        <Value>
+            <uax:UInt16>0</uax:UInt16>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="SignalColor" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6039" BrowseName="5:SignalColor" AccessLevel="3">
+        <DisplayName>SignalColor</DisplayName>
+        <Description Locale="en">Indicates the colour the lamp element has when switched on.</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5013</Reference>
+        </References>
+        <Value>
+            <uax:Int32>3</uax:Int32>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="SignalModeLight" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6040" BrowseName="5:SignalMode" AccessLevel="3">
+        <DisplayName>SignalMode</DisplayName>
+        <Description Locale="en">Shows in what way the lamp is used (continuous light, flashing, blinking) when switched on.</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5013</Reference>
+        </References>
+        <Value>
+            <uax:Int32>0</uax:Int32>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="Boolean" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6041" BrowseName="5:SignalOn" AccessLevel="3">
+        <DisplayName>SignalOn</DisplayName>
+        <Description Locale="en">Indicates if the signal emitted by the stack element is currently switched on or not.</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5013</Reference>
+        </References>
+        <Value>
+            <uax:Boolean>false</uax:Boolean>
+        </Value>
+    </UAVariable>
     <UAObject ParentNodeId="ns=1;i=5015" NodeId="ns=1;i=5016" BrowseName="1:Green">
         <DisplayName>Green</DisplayName>
         <Description Locale="en">Represents a lamp element in a stacklight.</Description>
@@ -297,7 +354,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5016</Reference>
         </References>
         <Value>
-            <uax:UInt16>0</uax:UInt16>
+            <uax:UInt16>1</uax:UInt16>
         </Value>
     </UAVariable>
     <UAVariable DataType="SignalColor" ParentNodeId="ns=1;i=5016" NodeId="ns=1;i=6029" BrowseName="5:SignalColor" AccessLevel="3">
@@ -353,7 +410,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5018</Reference>
         </References>
         <Value>
-            <uax:UInt16>2</uax:UInt16>
+            <uax:UInt16>3</uax:UInt16>
         </Value>
     </UAVariable>
     <UAVariable DataType="SignalColor" ParentNodeId="ns=1;i=5018" NodeId="ns=1;i=6035" BrowseName="5:SignalColor" AccessLevel="3">
@@ -420,7 +477,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5017</Reference>
         </References>
         <Value>
-            <uax:UInt16>1</uax:UInt16>
+            <uax:UInt16>2</uax:UInt16>
         </Value>
     </UAVariable>
     <UAVariable DataType="SignalColor" ParentNodeId="ns=1;i=5017" NodeId="ns=1;i=6032" BrowseName="5:SignalColor" AccessLevel="3">
@@ -577,7 +634,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5001</Reference>
         </References>
         <Value>
-            <uax:DateTime>2023-05-12T12:55:09Z</uax:DateTime>
+            <uax:DateTime>2023-05-16T15:11:27Z</uax:DateTime>
         </Value>
     </UAVariable>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6003" BrowseName="NamespaceUri">
@@ -597,7 +654,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5001</Reference>
         </References>
         <Value>
-            <uax:String>0.2.1</uax:String>
+            <uax:String>0.2.2</uax:String>
         </Value>
     </UAVariable>
     <UAVariable DataType="IdType" ParentNodeId="ns=1;i=5001" ValueRank="1" NodeId="ns=1;i=6005" ArrayDimensions="0" BrowseName="StaticNodeIdTypes">
