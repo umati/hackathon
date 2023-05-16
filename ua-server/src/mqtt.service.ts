@@ -39,9 +39,7 @@ export class MqttService {
         }
     }
 
-    async listenToMessages(){
-        this._client.on('message', (topic, message) => {
-            this._logger.log(`Received a message of topic: ${topic}, and message: ${message}`);
-        })
+    async listenToMessages(callback: (topic: string, message: any) => any){
+        this._client.on('message', callback);
     }
 }
