@@ -32,9 +32,7 @@ export class OpcuaServerService {
   }
 
   onApplicationShutdown() {
-    this._server.shutdown(function (err) {
-      console.log('shutdown');
-    });
+    this._server.shutdown(function (err) {});
   }
 
   initialize() {
