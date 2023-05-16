@@ -27,15 +27,21 @@ export class MqttService {
         }
     }
 
-    async subscribe(topic: string, options?: IClientSubscribeOptions) {
+    async subscribe(topic: string, options: IClientSubscribeOptions= {qos: 2}) {
         if(this._client.connected){
             await this._client.subscribe(topic, options);
         }
     }
-    
+
+    async unsubscribe(topic: string) {
+        if(this._client.connected){
+            await this._client.unsubscribe(topic);
+        }
+    }
+
     async listenToMessages(){
         this._client.on('message', (topic, message) => {
-            this._logger.warn(`Received a message of topic: ${topic}, and message: ${message}`);
+            this._logger.log(`Received a message of topic: ${topic}, and message: ${message}`);
         })
     }
 }
