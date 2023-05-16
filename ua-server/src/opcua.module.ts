@@ -3,6 +3,7 @@ import { OpcuaServerService } from './opcua-server.service';
 import { ConfigModule } from '@nestjs/config';
 import { OpcuaFacadeService } from './opcua-facade.service';
 import opcuaConfig from 'config/opcua.config';
+import { MqttService } from './mqtt.service';
 
 @Module({
   imports: [
@@ -12,6 +13,6 @@ import opcuaConfig from 'config/opcua.config';
     }),
   ],
   controllers: [],
-  providers: [OpcuaServerService, ConsoleLogger, OpcuaFacadeService],
+  providers: [OpcuaServerService, ConsoleLogger, OpcuaFacadeService, MqttService],
 })
 export class AppModule {}
