@@ -11,10 +11,11 @@ import {
   timer,
   toArray,
 } from 'rxjs';
-import { DataType, coerceLocalizedText } from 'node-opcua';
+import { DataType, LocalizedText, coerceLocalizedText } from 'node-opcua';
 import { read } from 'fs';
 import { MqttService } from './mqtt.service';
 import { Signal } from './signal';
+import { ProductionState } from './productionstate';
 
 @Injectable()
 export class OpcuaFacadeService {
@@ -66,24 +67,47 @@ export class OpcuaFacadeService {
     switch (signal) {
       case Signal.SteuerungEin:
         console.log(signal, value);
+        if(value == true){
+          this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Initializing"}));
+          this._server.writeSingleNode(6, 6016, DataType.Int32, ProductionState.Initializing);
+        }
         break;
       case Signal.Notaus:
         console.log(signal, value);
+        //TODO: read Signal: if Running -> Aborted, sonst nix tun
+        if(value == true){
+          this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Aborted"}));
+          this._server.writeSingleNode(6, 6016, DataType.Int32, ProductionState.Aborted);
+        }
         break;
       case Signal.EnergieEin:
+        //TODO: Zeit messen
         console.log(signal, value);
         break;
       case Signal.SpindelEin:
         console.log(signal, value);
+          this._server.writeSingleNode(6, 6023, DataType.Boolean, value);
         break;
       case Signal.StartLader:
         console.log(signal, value);
+        if(value == true){
+          this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Ended"}));
+          this._server.writeSingleNode(6, 6016, DataType.Int32, ProductionState.Ended);
+        }
         break;
       case Signal.ZyklusStart:
         console.log(signal, value);
+        if(value == true){
+          this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Running"}));
+          this._server.writeSingleNode(6, 6016, DataType.Int32, ProductionState.Running);
+        }
         break;
       case Signal.ZyklusStopp:
         console.log(signal, value);
+        if(value == true){
+          this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Aborted"}));
+          this._server.writeSingleNode(6, 6016, DataType.Int32, ProductionState.Aborted);
+        }
         break;
     }
   }
@@ -116,6 +140,12 @@ export class OpcuaFacadeService {
         dt: DataType.String,
         value: '42',
       },
+      {
+        ns: 6,
+        id: 6023,
+        dt: DataType.Boolean,
+        value: false,
+      }
     ]);
   }
 }
