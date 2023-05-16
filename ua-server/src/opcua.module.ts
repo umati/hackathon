@@ -1,6 +1,7 @@
 import { Module, ConsoleLogger } from '@nestjs/common';
 import { OpcuaServerService } from './opcua-server.service';
 import { ConfigModule } from '@nestjs/config';
+import { OpcuaFacadeService } from './opcua-facade.service';
 import opcuaConfig from 'config/opcua.config';
 
 @Module({
@@ -11,6 +12,6 @@ import opcuaConfig from 'config/opcua.config';
     }),
   ],
   controllers: [],
-  providers: [OpcuaServerService, ConsoleLogger],
+  providers: [OpcuaServerService, ConsoleLogger, OpcuaFacadeService],
 })
 export class AppModule {}
