@@ -31,8 +31,10 @@ export class OpcuaServerService {
     });
   }
 
-  async onApplicationShutdown() {
-    await this._server.shutdown();
+  onApplicationShutdown() {
+    this._server.shutdown(function (err) {
+      console.log('shutdown');
+    });
   }
 
   initialize() {
@@ -66,10 +68,6 @@ export class OpcuaServerService {
         );
       }),
     );
-  }
-
-  shutdown() {
-    this._server.shutdown();
   }
 
   readSingleNode(namespace: number, nodeId: number) {
