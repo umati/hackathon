@@ -1,0 +1,187 @@
+====================
+PLC_PRG Variables
+=====================
+
+PROGRAM PLC_PRG
+VAR
+	(* ************************************************************************	*)
+	(* Cloud Status                                                             *)
+	(* ************************************************************************	*)
+	FbMqttStatus : WagoAppCloud.FbStatus_NativeMQTT;
+	xCloudStatusEnabled : BOOL := TRUE;
+	xCloudConnected : BOOL;
+	rCacheFillLevel : REAL;
+	xCloudError : BOOL;
+	uliOutgoingDataBlocks: ULINT;
+	
+	(* ************************************************************************	*)
+	(* ToCloud                                                                  *)
+	(* ************************************************************************	*)
+
+	oFbPublishMQTT : WagoAppCloud.FbPublishMQTT_2(eConnection := eConnectionID.Connection1);
+
+	sPublishTopic : STRING;
+	abPublishData	: ARRAY [GVL_Local.cstStartArrayIndex..0] OF BYTE;
+	
+	dwPublishedSize: DWORD;
+	xPublishTrigger: BOOL;
+	xPublishError: BOOL;
+	bPublishStep: BYTE := 0;
+
+	bIndex: BYTE;
+	xVariableToPublish: BOOL;
+	bOldStatus: BYTE;
+	bForIndex: BYTE;
+END_VAR
+
+
+===================
+PLC_PRG Code
+=====================
+
+//Datas which are sent to the MQTT Broker...
+ToBroker();
+// Get the status of the connection with the broker...
+GetMqttStatus();
+
+
+=====================
+GetMqttStatus
+=====================
+// Call the function bloc to get the status of the connection
+FbMqttStatus(
+	xEnabled:= xCloudStatusEnabled, 
+	xError=> xCloudError, 
+	xCloudConnected=> xCloudConnected , 
+	rCacheFillLevel=> rCacheFillLevel, 
+	uliOutgoingDataBlocks=> uliOutgoingDataBlocks, 
+	ErrorInformation=> , 
+	oStatus=> );
+	
+===========================
+ToBroker
+==========================
+
+oFbPublishMQTT(
+sTopic:= sPublishTopic, 
+eQualityOfService:= eQualityOfService.QoS1, 
+xRetain:= , 
+dwSize:= dwPublishedSize, 
+aData:= abPublishData,
+xTrigger:= xPublishTrigger, 
+xBusy=> , 
+xError=> xPublishError, 
+oStatus=> );
+
+// For each Data to be send to the MQTT Broker
+CASE bPublishStep OF
+	
+0 :		bIndex := 1;//When new Data are raedy to be sent to the MQTT Broker	
+		bPublishStep := 10;
+	
+10: 	sPublishTopic := '';
+		CASE bIndex OF
+			
+			1: 	IF (bStatus.0 <> bOldStatus.0) THEN
+					sPublishTopic := 'brownie/in/1';
+					xVariableToPublish :=in1;
+					bOldStatus.0 := bStatus.0;
+				END_IF
+
+			2: 	IF (bStatus.1 <> bOldStatus.1) THEN
+					sPublishTopic := 'brownie/in/3';
+					xVariableToPublish :=in2;
+					bOldStatus.1 := bStatus.1;
+				END_IF
+			3: 	IF (bStatus.2 <> bOldStatus.2) THEN
+					sPublishTopic := 'brownie/in/5';
+					xVariableToPublish :=in3;
+					bOldStatus.2 := bStatus.2;
+				END_IF
+			4: 	IF (bStatus.3 <> bOldStatus.3) THEN
+					sPublishTopic := 'brownie/in/6';
+					xVariableToPublish :=in4;
+					bOldStatus.3 := bStatus.3;
+				END_IF
+			5: 	IF (bStatus.4 <> bOldStatus.4) THEN
+					sPublishTopic := 'brownie/in/8';
+					xVariableToPublish :=in5;
+					bOldStatus.4 := bStatus.4;
+				END_IF
+			6: 	IF (bStatus.5 <> bOldStatus.5) THEN
+					sPublishTopic := 'brownie/in/9';
+					xVariableToPublish :=in6;
+					bOldStatus.5 := bStatus.5;
+				END_IF
+			7: 	IF (bStatus.6 <> bOldStatus.6) THEN
+					sPublishTopic := 'brownie/in/10';
+					xVariableToPublish :=in7;
+					bOldStatus.6 := bStatus.6;
+				END_IF
+			8: 	IF (bStatus.7 <> bOldStatus.7) THEN
+					sPublishTopic := 'brownie/in/14';
+					xVariableToPublish :=in8;
+					bOldStatus.7 := bStatus.7;
+				END_IF
+				
+		END_CASE
+		IF (sPublishTopic <> '') THEN
+			bPublishStep := 15;
+		ELSE
+			bIndex := bIndex + 1;
+			IF (bIndex > 8) THEN
+				bIndex := 1;		
+			END_IF		
+		END_IF	
+		
+15:		abPublishData[0] := TO_BYTE(xVariableToPublish);
+		dwPublishedSize := SIZEOF(abPublishData);
+		xPublishTrigger := TRUE;
+		bPublishStep := 20;
+		
+20:		//if the publishing went troublefree
+		IF NOT 	xPublishTrigger THEN
+			IF NOT xPublishError THEN
+				bIndex := bIndex + 1;
+				IF (bIndex > 8) THEN
+					bIndex := 1;		
+				END_IF
+				bPublishStep := 10;
+			ELSE
+				bIndex := bIndex;
+			END_IF					
+		END_IF
+
+END_CASE
+
+==============
+GVL_Local
+=============
+{attribute 'qualified_only'}
+
+VAR_GLOBAL CONSTANT
+	cstStartArrayIndex : WORD := 0;
+	cstMaxDataSize: WORD := 50000;
+END_VAR
+
+VAR_GLOBAL
+	
+	sTopicBigData : STRING := 'Brownie/ControlOn'; 		
+	xStartPublishing : BOOL := FALSE;
+	
+	sTopic1 : STRING := 'brownie/in/1'; 
+	sTopic2 : STRING := 'brownie/in/2'; 
+	sTopic3 : STRING := 'brownie/in/3'; 
+	sTopic4 : STRING := 'brownie/in/4'; 
+	sTopic5 : STRING := 'brownie/in/5'; 
+	sTopic6 : STRING := 'brownie/in/6'; 
+	sTopic7 : STRING := 'brownie/in/7'; 
+	sTopic8 : STRING := 'brownie/in/8'; 
+	sTopic9 : STRING := 'brownie/in/9'; 
+	sTopic10 : STRING := 'brownie/in/10'; 
+	
+	abBigData : ARRAY[cstStartArrayIndex..0] OF BYTE;
+	abRxBigData: ARRAY [cstStartArrayIndex..0] OF BYTE;
+
+END_VAR
+
