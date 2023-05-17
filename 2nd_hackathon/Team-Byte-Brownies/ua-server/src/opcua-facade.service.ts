@@ -88,6 +88,10 @@ export class OpcuaFacadeService {
         console.log(signal, value);
           this._server.writeSingleNode(6, 6023, DataType.Boolean, value);
         break;
+      case Signal.WerkzeugSpindelEin:
+        console.log(signal, value);
+          this._server.writeSingleNode(6, 6042, DataType.Boolean, value);
+          break;
       case Signal.StartLader:
         console.log(signal, value);
         if(value == true){
