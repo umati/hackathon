@@ -74,7 +74,8 @@ export class OpcuaFacadeService {
         break;
       case Signal.Notaus:
         console.log(signal, value);
-        if(value == true){
+        let readStatus = this._server.readSingleNode(6, 6016);
+        if(value === true && readStatus.value?.value === ProductionState.Running){
           this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Aborted"}));
           this._server.writeSingleNode(6, 6016, DataType.Int32, ProductionState.Aborted);
         }
