@@ -69,7 +69,7 @@ export class OpcuaFacadeService {
         console.log(signal, value);
         if(value == true){
           this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Initializing"}));
-          this._server.writeSingleNode(6, 6016, DataType.Int32, ProductionState.Initializing);
+          this._server.writeSingleNode(6, 6016, DataType.UInt32, ProductionState.Initializing);
         }
         break;
       case Signal.Notaus:
@@ -77,7 +77,7 @@ export class OpcuaFacadeService {
         let readStatus = this._server.readSingleNode(6, 6016);
         if(value === true && readStatus.value?.value === ProductionState.Running){
           this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Aborted"}));
-          this._server.writeSingleNode(6, 6016, DataType.Int32, ProductionState.Aborted);
+          this._server.writeSingleNode(6, 6016, DataType.UInt32, ProductionState.Aborted);
         }
         break;
       case Signal.EnergieEin:
@@ -96,21 +96,21 @@ export class OpcuaFacadeService {
         console.log(signal, value);
         if(value == true){
           this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Ended"}));
-          this._server.writeSingleNode(6, 6016, DataType.Int32, ProductionState.Ended);
+          this._server.writeSingleNode(6, 6016, DataType.UInt32, ProductionState.Ended);
         }
         break;
       case Signal.ZyklusStart:
         console.log(signal, value);
         if(value == true){
           this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Running"}));
-          this._server.writeSingleNode(6, 6016, DataType.Int32, ProductionState.Running);
+          this._server.writeSingleNode(6, 6016, DataType.UInt32, ProductionState.Running);
         }
         break;
       case Signal.ZyklusStopp:
         console.log(signal, value);
         if(value == true){
           this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Aborted"}));
-          this._server.writeSingleNode(6, 6016, DataType.Int32, ProductionState.Aborted);
+          this._server.writeSingleNode(6, 6016, DataType.UInt32, ProductionState.Aborted);
         }
         break;
     }
