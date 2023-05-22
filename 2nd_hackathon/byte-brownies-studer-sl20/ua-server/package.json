@@ -1,5 +1,5 @@
 {
-  "name": "opcua-umati-server",
+  "name": "ua-server",
   "version": "0.1.0",
   "description": "Small opcua server, that uses umati nodeset files. Also uses a mqtt client to fetch data.",
   "private": true,
