@@ -1,10 +1,19 @@
 {
-  "name": "cw-opcua-umati-server",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "name": "opcua-umati-server",
+  "version": "0.1.0",
+  "description": "Small opcua server, that uses umati nodeset files. Also uses a mqtt client to fetch data.",
   "private": true,
   "license": "MIT",
+  "contributors": [
+    {
+      "name": "Timo Barth",
+      "email": "timo.barth@codewerk.de"
+    },
+    {
+      "name": "Mohammad Mohammad",
+      "email": "mohammad.mohammad@codewerk.de"
+    }
+  ],
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
