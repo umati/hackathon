@@ -23,3 +23,7 @@ To run the server, simply run
 ```shell
 yarn docker:up umati.server
 ```
+
+## MQTT Broker
+
+The image used for the MQTT broker on the WAGO plc can be found [here](https://hub.docker.com/r/arm32v6/eclipse-mosquitto/)
