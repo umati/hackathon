@@ -1,0 +1,750 @@
+[
+    {
+        "id": "bc4a3f9a71df8457",
+        "type": "tab",
+        "label": "MQTT Weidmüller io",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4557db471628fb24",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "write Monitoring.Stacklight.Lamp1",
+        "func": "// NS definieren\nvar ns = \"ns=39;\";\n\n// Datatype definieren\nvar dtBoolean = \"datatype=Boolean\"\nvar dtInt32 = \"datatype=Int32\"\n\n// Variable definieren\nvar SignalColor = {};\nSignalColor.topic = \"i=6035;\" + dtInt32\nSignalColor.payload = 1 //red\n\nvar SignalOn = {};\nSignalOn.topic = \"i=6037;\" + dtBoolean\nSignalOn.payload = flow.get(\"DigitalInput.Lamp1\")\n\nvar SignalMode = {};\nSignalMode.topic = \"i=6036;\" + dtInt32\nSignalMode.payload = 0\n\nvar messages = [SignalColor, SignalOn, SignalMode]\n\nmessages.forEach(function (msg) {\n    msg.topic = ns + msg.topic;\n    msg.payload = msg.payload;\n    node.send(msg);\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 520,
+        "wires": [
+            [
+                "b132c1a62ce5d2e3"
+            ]
+        ]
+    },
+    {
+        "id": "b132c1a62ce5d2e3",
+        "type": "link out",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA Stacklight",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 830,
+        "y": 520,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "9f8d6138f240c69c",
+        "type": "mqtt in",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "topic": "iodata",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dfe313a551b082ac",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 80,
+        "wires": [
+            [
+                "eef9287a80932445"
+            ]
+        ]
+    },
+    {
+        "id": "eef9287a80932445",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "Set Flow Variables",
+        "func": "// value definieren\nvar DigitalInput_1 = msg.payload[0].value\nvar DigitalInput_2 = msg.payload[1].value\nvar DigitalInput_3 = msg.payload[2].value\nvar DigitalInput_4 = msg.payload[3].value\nvar DigitalInput_5 = msg.payload[4].value\nvar DigitalInput_6 = msg.payload[5].value\nvar DigitalInput_7 = msg.payload[6].value\nvar DigitalInput_8 = msg.payload[7].value\n\nif (DigitalInput_1 == 0){ DigitalInput_1 = false}\nelse { DigitalInput_1 = true}\n\nif (DigitalInput_2 == 0) { DigitalInput_2 = false }\nelse { DigitalInput_2 = true }\n\nif (DigitalInput_3 == 0) { DigitalInput_3 = false }\nelse { DigitalInput_3 = true }\n\nif (DigitalInput_4 == 1) { DigitalInput_4 = 0 }\nelse { DigitalInput_4 = 50 }\n\nif (DigitalInput_5 == 1) { DigitalInput_5 = 100 }\nelse { DigitalInput_5 = 50 }\n\nif (DigitalInput_7 == 0) { DigitalInput_7 = false }\nelse { DigitalInput_7 = true }\n\nif (DigitalInput_8 == 0) { DigitalInput_8 = false }\nelse { DigitalInput_8 = true }\n\nmsg.topic = \"DigitalInput\"\nmsg.payload = {\n    \"Lamp1\": DigitalInput_1,\n    \"Lamp2\": DigitalInput_2,\n    \"Lamp3\": DigitalInput_3,\n    \"Lamp4\": DigitalInput_8,\n    \"Override_0\": DigitalInput_4,\n    \"Override_100\": DigitalInput_5,\n    \"EnergyOn\": DigitalInput_6,\n    \"Spindle\": DigitalInput_7    \n}\n\nflow.set(msg.topic, msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 80,
+        "wires": [
+            [
+                "54dd93d528335b62"
+            ]
+        ]
+    },
+    {
+        "id": "214d2689b20a91fd",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "write Identification",
+        "func": "// NS definieren\nvar ns = \"ns=39;\";\n\n// Datatype definieren\nvar dtString = \"datatype=String\"\nvar dtInt32 = \"datatype=Int32\"\nvar dtUInt16 = \"datatype=UInt16\"\nvar dtDateTime = \"datatyp=DateTime\"\nvar dtlt = \"datatype=LocalizedText\"\n\n//Variablen definieren\nvar Manufacturer = {};\nManufacturer.topic = \"i=6008;\" + dtlt\nManufacturer.payload = \"UNITED GRINDING Group\"\n\nvar ProductInstanceUri = {};\nProductInstanceUri.topic = \"i=6009;\" + dtString\nProductInstanceUri.payload = \"www.grinding.ch\"\n\nvar SerialNumber = {};\nSerialNumber.topic = \"i=6010;\" + dtString\nSerialNumber.payload = \"9900-0002\"\n\nvar messages = [Manufacturer, ProductInstanceUri, SerialNumber]\n\nmessages.forEach(function (msg) {\n    msg.topic = ns + msg.topic;\n    msg.payload = msg.payload;\n    node.send(msg);\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 240,
+        "wires": [
+            [
+                "ce609598a89da6df"
+            ]
+        ]
+    },
+    {
+        "id": "2a4d94e03936b037",
+        "type": "inject",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "props": [],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "214d2689b20a91fd"
+            ]
+        ]
+    },
+    {
+        "id": "ce609598a89da6df",
+        "type": "link out",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA Identification",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 840,
+        "y": 240,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "b24b811cbcfc017f",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "write Monitoring.Stacklight.Lamp2",
+        "func": "// NS definieren\nvar ns = \"ns=39;\";\n\n// Datatype definieren\nvar dtInt32 = \"datatype=Int32\"\nvar dtBoolean = \"datatype=Boolean\"\n\n// Variable definieren\nvar SignalColor = {};\nSignalColor.topic = \"i=6032;\" + dtInt32\nSignalColor.payload = 4 //yellow\n\nvar SignalOn = {};\nSignalOn.topic = \"i=6034;\" + dtBoolean\nSignalOn.payload = flow.get(\"DigitalInput.Lamp2\")\n\nvar SignalMode = {};\nSignalMode.topic = \"i=6033;\" + dtInt32\nSignalMode.payload = 0\n\nvar messages = [SignalColor, SignalOn, SignalMode]\n\nmessages.forEach(function (msg) {\n    msg.topic = ns + msg.topic;\n    msg.payload = msg.payload;\n    node.send(msg);\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 560,
+        "wires": [
+            [
+                "049afb1dd0d1ae77"
+            ]
+        ]
+    },
+    {
+        "id": "5cb8bc9109169e4f",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "write Monitoring.Stacklight.Lamp3",
+        "func": "// NS definieren\nvar ns = \"ns=39;\";\n\n// Datatype definieren\nvar dtInt32 = \"datatype=Int32\"\nvar dtBoolean = \"datatype=Boolean\"\n\n// Variable definieren\nvar SignalColor = {};\nSignalColor.topic = \"i=6029;\" + dtInt32\nSignalColor.payload = 2 //green\n\nvar SignalOn = {};\nSignalOn.topic = \"i=6031;\" + dtBoolean\nSignalOn.payload = flow.get(\"DigitalInput.Lamp3\")\n\nvar SignalMode = {};\nSignalMode.topic = \"i=6030;\" + dtInt32\nSignalMode.payload = 0\n\nvar messages = [SignalColor, SignalOn, SignalMode]\n\nmessages.forEach(function (msg) {\n    msg.topic = ns + msg.topic;\n    msg.payload = msg.payload;\n    node.send(msg);\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 600,
+        "wires": [
+            [
+                "7c917b27f438102a"
+            ]
+        ]
+    },
+    {
+        "id": "5603465fb3e28796",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "write Monitoring.OperationMode",
+        "func": "// NS definieren\nvar ns = \"ns=39;\";\n\n// Datatype definieren\nvar dtInt32 = \"datatype=Int32\"\n\n// Calcs\nvar om\nif (flow.get(\"DigitalInput.Lamp3\") == true)\n{ om = 0 }\n\nelse if (flow.get(\"DigitalInput.Lamp2\") == true)\n{ om = 2 }\n\nelse { om = 5}\n\n// Variablen definieren\nvar OperationMode = {};\nOperationMode.topic = \"i=6011;\" + dtInt32\nOperationMode.payload = om\n\nvar messages = [OperationMode]\n\nmessages.forEach(function (msg) {\n    msg.topic = ns + msg.topic;\n    msg.payload = msg.payload;\n    node.send(msg);\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 480,
+        "wires": [
+            [
+                "6953dd87bc2c96a2"
+            ]
+        ]
+    },
+    {
+        "id": "6953dd87bc2c96a2",
+        "type": "link out",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA OperationMode",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 850,
+        "y": 480,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "a7cb822abe1f13de",
+        "type": "inject",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "props": [],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 780,
+        "wires": [
+            [
+                "7934ceb189d3eb5c"
+            ]
+        ]
+    },
+    {
+        "id": "7934ceb189d3eb5c",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "write Production.ActiveProgram",
+        "func": "// NS definieren\nvar ns = \"ns=39;\";\n\n// Datatype definieren\nvar dtString = \"datatype=String\"\nvar dtlt = \"datatype=LocalizedText\"\nvar dtUInt16 = \"datatype=UInt16\"\n\n// Calcs\nvar St\nif (\n    (flow.get(\"DigitalInput.EnergyOn\") == 1) &&\n    (flow.get(\"DigitalInput.Lamp3\") == true) &&\n    (flow.get(\"DigitalInput.Override_0\") == 50))    \n    { St = \"Running\" }\n\nelse { St = \"Interrupted\" }\n\n//Variablen definieren\nvar Name = {};\nName.topic = \"i=6012;\" + dtString\nName.payload = \"Hackathon23.Program\"\n\nvar NumberInList = {};\nNumberInList.topic = \"i=6013;\" + dtUInt16\nNumberInList.payload = 0\n\nvar CurrentState = {};\nCurrentState.topic = \"i=6014;\" + dtlt\nCurrentState.payload = St\n\nvar messages = [Name, NumberInList, CurrentState]\n\nmessages.forEach(function (msg) {\n    msg.topic = ns + msg.topic;\n    msg.payload = msg.payload;\n    node.send(msg);\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 780,
+        "wires": [
+            [
+                "30848415c60916ec"
+            ]
+        ]
+    },
+    {
+        "id": "30848415c60916ec",
+        "type": "link out",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA Production.ActiveProgram",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 900,
+        "y": 780,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "4ab993efdb53692f",
+        "type": "inject",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "props": [],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 480,
+        "wires": [
+            [
+                "5603465fb3e28796"
+            ]
+        ]
+    },
+    {
+        "id": "be5f480b988f4f9d",
+        "type": "link in",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA in",
+        "links": [
+            "049afb1dd0d1ae77",
+            "30848415c60916ec",
+            "6953dd87bc2c96a2",
+            "789c8a60e27acf35",
+            "7c917b27f438102a",
+            "b132c1a62ce5d2e3",
+            "ce609598a89da6df",
+            "d24bf741cf2e6b6d",
+            "d3eb524ca45e4535",
+            "e3c27e9f9e7789d7",
+            "eb09d23ecb63d16e",
+            "f6559678f4041e86"
+        ],
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "f729f8d8154d71b6"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "f729f8d8154d71b6",
+        "type": "OpcUa-Client",
+        "z": "bc4a3f9a71df8457",
+        "endpoint": "09187f1a6dfe5482",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "folderName4PKI": "",
+        "maxChunkCount": "",
+        "maxMessageSize": "",
+        "receiveBufferSize": "",
+        "sendBufferSize": "",
+        "name": "",
+        "x": 420,
+        "y": 140,
+        "wires": [
+            [
+                "1e886734ba90703c"
+            ]
+        ]
+    },
+    {
+        "id": "54dd93d528335b62",
+        "type": "debug",
+        "z": "bc4a3f9a71df8457",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1e886734ba90703c",
+        "type": "debug",
+        "z": "bc4a3f9a71df8457",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "049afb1dd0d1ae77",
+        "type": "link out",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA Stacklight",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 830,
+        "y": 560,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "7c917b27f438102a",
+        "type": "link out",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA Stacklight",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 830,
+        "y": 600,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "58582669728f3691",
+        "type": "inject",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "props": [],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 520,
+        "wires": [
+            [
+                "4557db471628fb24"
+            ]
+        ]
+    },
+    {
+        "id": "c03e26743763bbf6",
+        "type": "inject",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "props": [],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 560,
+        "wires": [
+            [
+                "b24b811cbcfc017f"
+            ]
+        ]
+    },
+    {
+        "id": "286e4efabd33a6b7",
+        "type": "inject",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "props": [],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 600,
+        "wires": [
+            [
+                "5cb8bc9109169e4f"
+            ]
+        ]
+    },
+    {
+        "id": "6065669a36d66586",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "write Monitoring.Channel.ChannelMode",
+        "func": "// NS definieren\nvar ns = \"ns=39;\";\n\n// Datatype definieren\nvar dtInt32 = \"datatype=Int32\"\n\n// Calcs\nvar CM\nif (\n    (flow.get(\"DigitalInput.EnergyOn\") == 1) &&\n    (flow.get(\"DigitalInput.Lamp1\") == false)) { CM = 0 }\n\nelse { CM = 7 }\n\n// Variable definieren\nvar ChannelMode = {};\nChannelMode.topic = \"i=6017;\" + dtInt32\nChannelMode.payload = CM\n\nvar messages = [ChannelMode]\n\nmessages.forEach(function (msg) {\n    msg.topic = ns + msg.topic;\n    msg.payload = msg.payload;\n    node.send(msg);\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 300,
+        "wires": [
+            [
+                "d24bf741cf2e6b6d"
+            ]
+        ]
+    },
+    {
+        "id": "0fa8ea156d1684a9",
+        "type": "inject",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "props": [],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 300,
+        "wires": [
+            [
+                "6065669a36d66586"
+            ]
+        ]
+    },
+    {
+        "id": "7d243fd3f9dac06c",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "write Monitoring.Channel.ChannelState",
+        "func": "// NS definieren\nvar ns = \"ns=39;\";\n\n// Datatype definieren\nvar dtInt32 = \"datatype=Int32\"\n\n// Calcs\nvar CS\nif (flow.get(\"DigitalInput.EnergyOn\") == 1) { CS = 0 }\n\nelse { CS = 2 }\n\n// Variable definieren\nvar ChannelState = {};\nChannelState.topic = \"i=6018;\" + dtInt32\nChannelState.payload = CS\n\nvar messages = [ChannelState]\n\nmessages.forEach(function (msg) {\n    msg.topic = ns + msg.topic;\n    msg.payload = msg.payload;\n    node.send(msg);\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "f6559678f4041e86"
+            ]
+        ]
+    },
+    {
+        "id": "698e051f9804a562",
+        "type": "inject",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "props": [],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 340,
+        "wires": [
+            [
+                "7d243fd3f9dac06c"
+            ]
+        ]
+    },
+    {
+        "id": "f6559678f4041e86",
+        "type": "link out",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA ChannelState",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 840,
+        "y": 340,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "adbb7def251015f1",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "write Monitoring.Channel.FeedOverride",
+        "func": "// NS definieren\nvar ns = \"ns=39;\";\n\n// Datatype definieren\nvar dtDouble = \"datatype=Double\"\n\n// Calcs\nvar FO\nif (\n    (flow.get(\"DigitalInput.Override_0\") == 50) &&\n    (flow.get(\"DigitalInput.Override_100\") == 50)) { FO = 50 }\n\nelse if (flow.get(\"DigitalInput.Override_0\") == 0) { FO = 0 }\n\nelse if (flow.get(\"DigitalInput.Override_100\") == 100) { FO = 100 }\n\n// Variable definieren\nvar FeedOverride = {};\nFeedOverride.topic = \"i=6019;\" + dtDouble\nFeedOverride.payload = FO\n\nvar messages = [FeedOverride]\n\nmessages.forEach(function (msg) {\n    msg.topic = ns + msg.topic;\n    msg.payload = msg.payload;\n    node.send(msg);\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 380,
+        "wires": [
+            [
+                "d3eb524ca45e4535"
+            ]
+        ]
+    },
+    {
+        "id": "6ab2db8c588ae45b",
+        "type": "inject",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "props": [],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "adbb7def251015f1"
+            ]
+        ]
+    },
+    {
+        "id": "d3eb524ca45e4535",
+        "type": "link out",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA FeedOverride",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 840,
+        "y": 380,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "fdb7cedf99093787",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "write Monitoring.Spindle",
+        "func": "// NS definieren\nvar ns = \"ns=39;\";\n\n// Datatype definieren\nvar dtBoolean = \"datatype=Boolean\"\nvar dtString = \"datatype=String\"\n\n// Variablen definieren\nvar SpindleName = {};\nSpindleName.topic = \"i=6024;\" + dtString\nSpindleName.payload = \"Wheel 1\"\n\nvar SpindleIsRotating = {};\nSpindleIsRotating.topic = \"i=6023;\" + dtBoolean\nSpindleIsRotating.payload = flow.get(\"DigitalInput.Spindle\")\n\nvar messages = [SpindleName, SpindleIsRotating]\n\nmessages.forEach(function (msg) {\n    msg.topic = ns + msg.topic;\n    msg.payload = msg.payload;\n    node.send(msg);\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 440,
+        "wires": [
+            [
+                "789c8a60e27acf35"
+            ]
+        ]
+    },
+    {
+        "id": "f0744c283657dda7",
+        "type": "inject",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "props": [],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 440,
+        "wires": [
+            [
+                "fdb7cedf99093787"
+            ]
+        ]
+    },
+    {
+        "id": "789c8a60e27acf35",
+        "type": "link out",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA Spindle",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 830,
+        "y": 440,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "d24bf741cf2e6b6d",
+        "type": "link out",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA ChannelMode",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 850,
+        "y": 300,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "a6e8a7011ea1178a",
+        "type": "function",
+        "z": "bc4a3f9a71df8457",
+        "name": "write Monitoring.Stacklight.Lamp4",
+        "func": "// NS definieren\nvar ns = \"ns=39;\";\n\n// Datatype definieren\nvar dtInt32 = \"datatype=Int32\"\nvar dtBoolean = \"datatype=Boolean\"\n\n// Variable definieren\nvar SignalColor = {};\nSignalColor.topic = \"i=6039;\" + dtInt32\nSignalColor.payload = 3 //blue\n\nvar SignalOn = {};\nSignalOn.topic = \"i=6041;\" + dtBoolean\nSignalOn.payload = flow.get(\"DigitalInput.Lamp4\")\n\nvar SignalMode = {};\nSignalMode.topic = \"i=6040;\" + dtInt32\nSignalMode.payload = 0\n\nvar messages = [SignalColor, SignalOn, SignalMode]\n\nmessages.forEach(function (msg) {\n    msg.topic = ns + msg.topic;\n    msg.payload = msg.payload;\n    node.send(msg);\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 640,
+        "wires": [
+            [
+                "e3c27e9f9e7789d7"
+            ]
+        ]
+    },
+    {
+        "id": "72d898252edec197",
+        "type": "inject",
+        "z": "bc4a3f9a71df8457",
+        "name": "",
+        "props": [],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 640,
+        "wires": [
+            [
+                "a6e8a7011ea1178a"
+            ]
+        ]
+    },
+    {
+        "id": "e3c27e9f9e7789d7",
+        "type": "link out",
+        "z": "bc4a3f9a71df8457",
+        "name": "OPC UA Stacklight",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 810,
+        "y": 640,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "dfe313a551b082ac",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "10.180.3.11",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "09187f1a6dfe5482",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://iot-opcua-pat:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    }
+]

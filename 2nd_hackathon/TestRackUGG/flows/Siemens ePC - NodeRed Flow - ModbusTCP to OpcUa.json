@@ -1,0 +1,605 @@
+[
+    {
+        "id": "51cc3fcb8e94704f",
+        "type": "tab",
+        "label": "PAC2200",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b10d38f950e39ffd",
+        "type": "modbus-flex-getter",
+        "z": "51cc3fcb8e94704f",
+        "name": "",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "server": "50df63787525bbf6",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 580,
+        "y": 460,
+        "wires": [
+            [
+                "8cca518cf4f6d9fd"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2bc96737529887d3",
+        "type": "inject",
+        "z": "51cc3fcb8e94704f",
+        "name": "",
+        "props": [],
+        "repeat": "3",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 150,
+        "y": 460,
+        "wires": [
+            [
+                "5a763452cc67b42b",
+                "25d3d8c04b543ebe",
+                "fbd35fbae61f7d7f",
+                "ca857ead0521c506",
+                "075c19e85d3353f7",
+                "e703cdab3e12890e",
+                "820f26483b9a48c0",
+                "25e4677397b4c950",
+                "163cc0d4bd1273d5",
+                "28a56d40abbf9347",
+                "f458de5515139603",
+                "ee78f128d5a3f764",
+                "98c31d3f9e9b1a71",
+                "fa0ca5911347d493",
+                "cb8eeca3d8eb4ca9",
+                "d04180eb67636749",
+                "3372c6ad3f3bcd01",
+                "d6cdf6ef413d38a8",
+                "707b8e882d46dd25",
+                "5823b167d2ca546c"
+            ]
+        ]
+    },
+    {
+        "id": "8cca518cf4f6d9fd",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "ConvertToFloat",
+        "func": "\nvar one = msg.payload[0]\nvar two = msg.payload[1]\n\n\n\nconst buf = Buffer.allocUnsafe(4);\nbuf.writeUint16BE(one,0)\nbuf.writeUint16BE(two, 2)\n\nvar converted = buf.readFloatBE(0);\nmsg.payload = converted\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 460,
+        "wires": [
+            [
+                "59d18ab521b097c1",
+                "61e712f2e51ddcd9"
+            ]
+        ]
+    },
+    {
+        "id": "59d18ab521b097c1",
+        "type": "debug",
+        "z": "51cc3fcb8e94704f",
+        "name": "debugStage1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "5a763452cc67b42b",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "currentL1",
+        "func": "msg.payload = { 'fc': 3, 'address': 13, 'quantity': 2 }\nmsg.topic = 'currentL1'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 460,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "25d3d8c04b543ebe",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "currentL2",
+        "func": "msg.payload = { 'fc': 3, 'address': 15, 'quantity': 2 }\nmsg.topic = 'currentL2'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 500,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "fbd35fbae61f7d7f",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "currentL3",
+        "func": "msg.payload = { 'fc': 3, 'address': 17, 'quantity': 2 }\nmsg.topic = 'currentL3'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 540,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "5823b167d2ca546c",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "activeEnergyTotal",
+        "func": "msg.payload = { 'fc': 3, 'address': 2801, 'quantity': 2 }\nmsg.topic = 'activeEnergyTotal'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 220,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "98c31d3f9e9b1a71",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "activePowerL1",
+        "func": "msg.payload = { 'fc': 3, 'address': 25, 'quantity': 2 }\nmsg.topic = 'activePowerL1'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 260,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "fa0ca5911347d493",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "activePowerL2",
+        "func": "msg.payload = { 'fc': 3, 'address': 27, 'quantity': 2 }\nmsg.topic = 'activePowerL2'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "cb8eeca3d8eb4ca9",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "activePowerL3",
+        "func": "msg.payload = { 'fc': 3, 'address': 29, 'quantity': 2 }\nmsg.topic = 'activePowerL1'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "707b8e882d46dd25",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "activePowerTotal",
+        "func": "msg.payload = { 'fc': 3, 'address': 65, 'quantity': 2 }\nmsg.topic = 'acctivePowerTotal'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 380,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "6d7bdd97cd7111e7",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "apparentEnergyTotal",
+        "func": "msg.payload = { 'fc': 3, 'address': 17, 'quantity': 2 }\nmsg.topic = 'apparentEnergyTotal'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ca857ead0521c506",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "powerFactorL1",
+        "func": "msg.payload = { 'fc': 3, 'address': 37, 'quantity': 2 }\nmsg.topic = 'powerFactorL1'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 580,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "075c19e85d3353f7",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "powerFactorL2",
+        "func": "msg.payload = { 'fc': 3, 'address': 39, 'quantity': 2 }\nmsg.topic = 'powerFactorL2'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 620,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "e703cdab3e12890e",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "powerFactorL3",
+        "func": "msg.payload = { 'fc': 3, 'address': 41, 'quantity': 2 }\nmsg.topic = 'powerFactorL2'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 660,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "60c8d65b2f983d7f",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "reactiveEnergyTotal",
+        "func": "msg.payload = { 'fc': 3, 'address': 17, 'quantity': 2 }\nmsg.topic = 'reactiveEnergyTotal'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3372c6ad3f3bcd01",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "reactivePowerQtotL2",
+        "func": "msg.payload = { 'fc': 3, 'address': 33, 'quantity': 2 }\nmsg.topic = 'reactivePowerQtotL2'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 780,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "d04180eb67636749",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "reactivePowerQtotL1",
+        "func": "msg.payload = { 'fc': 3, 'address': 31, 'quantity': 2 }\nmsg.topic = 'reactivePowerQtotL1'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 740,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "d6cdf6ef413d38a8",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "reactivePowerQtotL3",
+        "func": "msg.payload = { 'fc': 3, 'address': 35, 'quantity': 2 }\nmsg.topic = 'reactivePowerQtotL3'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 820,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "820f26483b9a48c0",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "voltageL1_L2",
+        "func": "msg.payload = { 'fc': 3, 'address': 7, 'quantity': 2 }\nmsg.topic = 'voltageL1_L2'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 860,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "25e4677397b4c950",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "voltageL1_N",
+        "func": "msg.payload = { 'fc': 3, 'address': 1, 'quantity': 2 }\nmsg.topic = 'voltageL1_N'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 900,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "163cc0d4bd1273d5",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "voltageL2_L3",
+        "func": "msg.payload = { 'fc': 3, 'address': 9, 'quantity': 2 }\nmsg.topic = 'voltageL2_L3'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 940,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "28a56d40abbf9347",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "voltageL2_N",
+        "func": "msg.payload = { 'fc': 3, 'address': 3, 'quantity': 2 }\nmsg.topic = 'voltageL2_N'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 980,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "f458de5515139603",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "voltageL3_L1",
+        "func": "msg.payload = { 'fc': 3, 'address': 11, 'quantity': 2 }\nmsg.topic = 'voltageL3_L1'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 1020,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "ee78f128d5a3f764",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "voltageL3_N",
+        "func": "msg.payload = { 'fc': 3, 'address': 5, 'quantity': 2 }\nmsg.topic = 'voltageL3_N'\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 1060,
+        "wires": [
+            [
+                "b10d38f950e39ffd"
+            ]
+        ]
+    },
+    {
+        "id": "61e712f2e51ddcd9",
+        "type": "function",
+        "z": "51cc3fcb8e94704f",
+        "name": "OpcUaMappingTable",
+        "func": "// NS definieren\nvar ns = \"ns=33;\";\n\n// Mapping-Table\n// \"activeEnergyTotal\" => \"i=6173;datatype=Float\"\n// \"activePowerL1\" => \"i=6123;datatype=Float\"\n// \"activePowerL2\" => \"i=6191;datatype=Float\"\n// \"activePowerL3\" => \"i=6197;datatype=Float\"\n// \"activePowerTotal\" => \"i=6129;datatype=Float\"\n// \"apparentEnergyTotal\" => \"i=6185;datatype=Float\"\n// \"currentL1\" => \"i=6116;datatype=Float\"\n// \"currentL2\" => \"i=6203;datatype=Float\"\n// \"currentL3\" => \"i=6209;datatype=Float\"\n// \"powerFactorL1\" => \"i=6233;datatype=Float\"\n// \"powerFactorL2\"=> \"i=6239;datatype=Float\"\n// \"powerFactorL3\" => \"i=6245;datatype=Float\" => !!!\n// \"reactiveEnergyTotal\" => \"i=6179;datatype=Float\"\n// \"reactivePowerQtotL1\" => \"i=6137;datatype=Float\"\n// \"reactivePowerQtotL2\" => \"i=6256;datatype=Float\"\n// \"reactivePowerQtotL3\" => \"i=6262;datatype=Float\"\n// \"voltageL1_L2\" => \"i=6288;datatype=Float\"\n// \"voltageL1_N\" => \"i=6109;datatype=Float\"\n// \"voltageL2_L3\" => \"i=6294;datatype=Float\"\n// \"voltageL2_N\" => \"i=6215;datatype=Float\"\n// \"voltageL3_L1\" => \"i=6300;datatype=Float\"\n// \"voltageL3_N\" => \"i=6221;datatype=Float\"\n\nvar name = [\"activeEnergyTotal\", \"activePowerL1\", \"activePowerL2\", \"activePowerL3\", \"activePowerTotal\", \"apparentEnergyTotal\", \"currentL1\", \"currentL2\", \"currentL3\", \"powerFactorL1\", \"powerFactorL2\", \"powerFactorL3\", \"reactiveEnergyTotal\", \"reactivePowerQtotL1\", \"reactivePowerQtotL2\", \"reactivePowerQtotL3\", \"voltageL1_L2\", \"voltageL1_N\", \"voltageL2_L3\", \"voltageL2_N\", \"voltageL3_L1\", \"voltageL3_N\"]\nvar ids = [\"i=6173;datatype=Float\", \"i=6123;datatype=Float\", \"i=6191;datatype=Float\", \"i=6197;datatype=Float\", \"i=6129;datatype=Float\", \"i=6185;datatype=Float\", \"i=6116;datatype=Float\", \"i=6203;datatype=Float\", \"i=6209;datatype=Float\", \"i=6233;datatype=Float\", \"i=6239;datatype=Float\", \"i=6245;datatype=Float\", \"i=6179;datatype=Float\", \"i=6137;datatype=Float\", \"i=6256;datatype=Float\", \"i=6262;datatype=Float\", \"i=6288;datatype=Float\", \"i=6109;datatype=Float\", \"i=6294;datatype=Float\", \"i=6215;datatype=Float\", \"i=6300;datatype=Float\", \"i=6221;datatype=Float\"]\n\n//var mappingTable = [curL1, curL2, curL3]\nvar topic = msg.topic\n//var payload = msg.payload\n\nfor (var i = 0; i < name.length; i++) {\n    if (name[i]==topic) {\n        msg.topic = ns + ids[i]\n        return msg\n        //node.send(msg);\n    }\n}\n\n//return msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 460,
+        "wires": [
+            [
+                "4dba61ca970bae3a",
+                "eb09d23ecb63d16e"
+            ]
+        ]
+    },
+    {
+        "id": "4dba61ca970bae3a",
+        "type": "debug",
+        "z": "51cc3fcb8e94704f",
+        "name": "debugStage2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "eb09d23ecb63d16e",
+        "type": "link out",
+        "z": "51cc3fcb8e94704f",
+        "name": "OPC UA EnergyMeter",
+        "mode": "link",
+        "links": [
+            "be5f480b988f4f9d"
+        ],
+        "x": 1360,
+        "y": 460,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "50df63787525bbf6",
+        "type": "modbus-client",
+        "name": "PAC2200",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "10.180.3.18",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "2000",
+        "parallelUnitIdsAllowed": true,
+        "showWarnings": true,
+        "showLogs": true
+    }
+]
