@@ -1,6 +1,6 @@
 # UGG Testrack
 
-## Genral
+## General
 In this group we had a testrack provided by UGG. 
 Main components of the testrack: 
 - Panel to display information e.g. override value
