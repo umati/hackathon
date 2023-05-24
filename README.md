@@ -4,19 +4,29 @@ This repository contains documentation and learnings for upcoming and past hacka
 
 ## Upcoming hackathons
 
-[umati Brownfield Hackathon](2nd_hackathon/Preparation.md)
+[umati MES Hackathon]
 
-When: **16.05.-17.05.2023**
+Save the date: **12.10.-13.10.2023**
 
-Where: **Fritz Studer AG, Thunstrasse 15, CH-3612 Steffisburg**
+Where: **tbd**
 
-Onboarding Web Meeting: **04.05.2023 9:00-10:00h CEST**
+Onboarding Web Meeting: **tbd**
 
-_Sponsored by_ United Grinding, Grob-Werke & umati
+_Sponsored by_ tbd
 
 ## Past hackathons
 
-umati, MindSphere and Grob-Werke 28.-29.09.2022
+### [2nd umati Brownfield Hackathon](./2nd_hackathon/Documentation.md)
+
+16.05.-17.05.2023 - Fritz Studer AG
+
+_Sponsored by_ United Grinding, Grob-Werke & umati
+
+### 1st umati hackathon
+
+ 28.-29.09.2022 - Grob-Werke
+
+_Sponsored by_ MindSphere World e.V., Grob-Werke and umati
 
 ## License
 
