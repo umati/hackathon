@@ -9,7 +9,7 @@ The individual documentation can be found in the respective folders:
 - [Team "Byte Brownies" - Studer SL20](./byte-brownies-studer-sl20/) - [Presentation](./byte-brownies-studer-sl20/team_byte_brownies-presentation.pdf)
 - [Team Sterling Engine](./stirling/) - [Presenation](./stirling/Doku/R%C3%BCckblicke.jpg)
 - [Team UGG TestRack](./TestRackUGG/Readme.md)
-- Team PowerConsumptionMonitoring - TODO
+- [Team PowerConsumptionMonitoring](./Compressor/slides.md)
 - Team TableTop Milling Machine - TODO
 
 ## Machine Tools information model
