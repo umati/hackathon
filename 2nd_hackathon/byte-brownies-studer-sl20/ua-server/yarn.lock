@@ -4435,9 +4435,9 @@ mqtt@^4.3.7:
     xtend "^4.0.2"
 
 mqtt@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-5.0.0.tgz#765397fc17cd0db4f9ee54e22809e163e513e44a"
-  integrity sha512-chIdEUb5Ky/ArqlNJnB7XrkLfOHjCbuYhBSvVdmfEbmk90E11RCiO5EcQaE6bDkxVGitLVDMrRJWwpv0s+ug4w==
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-5.0.1.tgz#6effe0a00190498708ee9710ee905cfb67201bcd"
+  integrity sha512-psZpMSTgQaR+jiGJO89+USxDfaukQFqWlHhSRyHGBAHFxYcxynvIw5gkeoquppsBXRZMRIo43spBYbyXdm+vXA==
   dependencies:
     commist "^3.2.0"
     concat-stream "^2.0.0"
