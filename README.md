@@ -6,7 +6,7 @@ This repository contains documentation and learnings for upcoming and past hacka
 
 [umati MES Hackathon]
 
-Save the date: **12.10.-13.10.2023**
+Save the date: ~~**12.10.-13.10.2023**~~ OnHold for now
 
 Where: **tbd**
 
