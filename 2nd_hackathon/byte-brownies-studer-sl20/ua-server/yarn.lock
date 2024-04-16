@@ -362,10 +362,10 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.20.2"
 
-"@babel/runtime@^7.23.8", "@babel/runtime@^7.24.0":
-  version "7.24.0"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.0.tgz#584c450063ffda59697021430cb47101b085951e"
-  integrity sha512-Chk32uHMg6TnQdvw2e9IlqPpFX/6NLuK0Ys2PqLb7/gL5uFn9mXvK715FGLlOLQrcO4qIkNHkvPGktzzXexsFw==
+"@babel/runtime@^7.23.8", "@babel/runtime@^7.24.4":
+  version "7.24.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.4.tgz#de795accd698007a66ba44add6cc86542aff1edd"
+  integrity sha512-dkxf7+hn8mFBwKjs9bvBlArzLVxVbS8usaPUDd5p2a9JCL9tB8OaOVN1isD4+Xyk4ns89/xeOmbQvgdK7IIVdA==
   dependencies:
     regenerator-runtime "^0.14.0"
 
@@ -1345,14 +1345,7 @@
     "@types/dns-packet" "*"
     "@types/node" "*"
 
-"@types/node@*":
-  version "20.12.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.5.tgz#74c4f31ab17955d0b5808cdc8fd2839526ad00b3"
-  integrity sha512-BD+BjQ9LS/D8ST9p5uqBxghlN+S42iuNxjsUGjeZobe/ciXzk2qb1B6IXc6AnRLS+yFJRpN2IPEHMzwspfDJNw==
-  dependencies:
-    undici-types "~5.26.4"
-
-"@types/node@20.12.7":
+"@types/node@*", "@types/node@20.12.7":
   version "20.12.7"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.7.tgz#04080362fa3dd6c5822061aa3124f5c152cff384"
   integrity sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==
@@ -2787,7 +2780,7 @@ eslint-scope@^8.0.1:
     esrecurse "^4.3.0"
     estraverse "^5.2.0"
 
-eslint-visitor-keys@^3.3.0, eslint-visitor-keys@^3.4.1:
+eslint-visitor-keys@^3.3.0, eslint-visitor-keys@^3.4.3:
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.4.3.tgz#0cd72fe8550e3c2eae156a96a4dddcd1c8ac5800"
   integrity sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag==
@@ -4544,9 +4537,9 @@ mqtt@^4.3.7:
     xtend "^4.0.2"
 
 mqtt@^5.0.0, mqtt@^5.2.0:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-5.5.0.tgz#a1c76592f47ce348fca8d11f0240824c829213d9"
-  integrity sha512-8WGQpjEzABcCh/UwLj7XaEoLsSLHJrJK3YLu57fJoLUBdz6zPGFdxWK3i1YYdPqKDu0sU6YHt+tly/qdLsLiyg==
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-5.5.2.tgz#225348558364b7af97fdaec157a6542af01e0046"
+  integrity sha512-dlKxINBrrorgMp1A5UHQVf5GAkn1m/dY12W2Sp6LAY794RxQ0OPo0Q9N2S3qrNRjjC1WETA/9oYR6yadhR3siw==
   dependencies:
     "@types/readable-stream" "^4.0.5"
     "@types/ws" "^8.5.9"
@@ -7041,33 +7034,33 @@ which@^2.0.1:
   dependencies:
     isexe "^2.0.0"
 
-worker-timers-broker@^6.1.4:
-  version "6.1.4"
-  resolved "https://registry.yarnpkg.com/worker-timers-broker/-/worker-timers-broker-6.1.4.tgz#f8bfa12e5ae341e326dbc97adde1d8325923d513"
-  integrity sha512-y3D+Yfj37lrItEMIlcfCm/IRueYtYKgpLlTG2wgTIZ9PSw0n/K4kweilgk3gTC4ahbQNVGT90lU+Rf7W4M5bsw==
+worker-timers-broker@^6.1.7:
+  version "6.1.7"
+  resolved "https://registry.yarnpkg.com/worker-timers-broker/-/worker-timers-broker-6.1.7.tgz#c570552f1576f81226dbeb0dc14bb64144c9597c"
+  integrity sha512-8hb4lSMAijDY/Dp/MOw9Hc2x6uU59XWFYjcWQgC4bai+sxcLXjeexd9aYKdYMFZPiPoieGzMYIs9WGpv2Co3eA==
   dependencies:
-    "@babel/runtime" "^7.24.0"
+    "@babel/runtime" "^7.24.4"
     fast-unique-numbers "^8.0.13"
     tslib "^2.6.2"
-    worker-timers-worker "^7.0.67"
+    worker-timers-worker "^7.0.70"
 
-worker-timers-worker@^7.0.67:
-  version "7.0.67"
-  resolved "https://registry.yarnpkg.com/worker-timers-worker/-/worker-timers-worker-7.0.67.tgz#1306f2f3e68911d879a69637898a5357054e23b7"
-  integrity sha512-0ZP2+v2fyiiiGaCEdWxMRUk5YxGFwWdRGB12ZfQy13vw8/27Xd+MW3ua56qlcM30nzjpddXXzLuEpHhGW+Pz7w==
+worker-timers-worker@^7.0.70:
+  version "7.0.70"
+  resolved "https://registry.yarnpkg.com/worker-timers-worker/-/worker-timers-worker-7.0.70.tgz#064758e1ca3bed908950d152e3e3006595dd9600"
+  integrity sha512-lemWEME0RHB78hzGkkQcKfF6L82gqVhV3T9iY14jHBhbLxLq9t1RRCLmPDBZV7sdnUoW6Khkfn6coqPjgEK6cw==
   dependencies:
-    "@babel/runtime" "^7.24.0"
+    "@babel/runtime" "^7.24.4"
     tslib "^2.6.2"
 
 worker-timers@^7.1.4:
-  version "7.1.4"
-  resolved "https://registry.yarnpkg.com/worker-timers/-/worker-timers-7.1.4.tgz#dd9a82a0bd7f8194d6e93855f84d4fb72f910361"
-  integrity sha512-8PRtiPAyeYukrY+iOUL+0tq4Zn5qyCHrTqFTtHxcESfIxGyulxNwyzQkybrYBKhnMWmx0bku3wxRfE1hts5R6Q==
+  version "7.1.7"
+  resolved "https://registry.yarnpkg.com/worker-timers/-/worker-timers-7.1.7.tgz#1119f6454cb7c8653097ffb66f592115fb6693ea"
+  integrity sha512-Dr4La61d94SjOA8P57h2LN8W3MXOVe/m1P7jER8cmuIy+JaDMqPttSwo6QRJFSK6YnG9cD6SU7J8m7CVlu8jlw==
   dependencies:
-    "@babel/runtime" "^7.24.0"
+    "@babel/runtime" "^7.24.4"
     tslib "^2.6.2"
-    worker-timers-broker "^6.1.4"
-    worker-timers-worker "^7.0.67"
+    worker-timers-broker "^6.1.7"
+    worker-timers-worker "^7.0.70"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
   version "7.0.0"
