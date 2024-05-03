@@ -363,9 +363,9 @@
     "@babel/helper-plugin-utils" "^7.20.2"
 
 "@babel/runtime@^7.23.8", "@babel/runtime@^7.24.4":
-  version "7.24.4"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.4.tgz#de795accd698007a66ba44add6cc86542aff1edd"
-  integrity sha512-dkxf7+hn8mFBwKjs9bvBlArzLVxVbS8usaPUDd5p2a9JCL9tB8OaOVN1isD4+Xyk4ns89/xeOmbQvgdK7IIVdA==
+  version "7.24.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.5.tgz#230946857c053a36ccc66e1dd03b17dd0c4ed02c"
+  integrity sha512-Nms86NXrsaeU9vbBJKni6gXiEXZ4CVpYVzEjDH9Sb8vmZ3UljyA1GSOJl/6LGPO8EHLuSF9H+IxNXHPX8QHJ4g==
   dependencies:
     regenerator-runtime "^0.14.0"
 
@@ -4323,9 +4323,9 @@ long@^4.0.0:
   integrity sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
 
 lru-cache@^10.0.1:
-  version "10.2.1"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.2.1.tgz#e8d901141f22937968e45a6533d52824070151e4"
-  integrity sha512-tS24spDe/zXhWbNPErCHs/AGOzbKGHT+ybSBqmdLm8WZ1xXLWvH8Qn71QPAlqVhd0qUTWjy+Kl9JmISgDdEjsA==
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.2.2.tgz#48206bc114c1252940c41b25b41af5b545aca878"
+  integrity sha512-9hp3Vp2/hFQUiIwKo8XCeFVnrg8Pk3TYNPIR7tJADKi5YfcF7vEaK7avFHTlSy3kOKYaJQaalfEo6YuXdceBOQ==
 
 lru-cache@^10.2.0, "lru-cache@^9.1.1 || ^10.0.0":
   version "10.2.0"
@@ -4546,9 +4546,9 @@ mqtt@^4.3.7:
     xtend "^4.0.2"
 
 mqtt@^5.0.0, mqtt@^5.2.0:
-  version "5.5.4"
-  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-5.5.4.tgz#fa578164f5be1dbabd3ed05aacfbd335aaaa9ae5"
-  integrity sha512-odO09EheOHFo8Bv6yM2iEtsM75t06tGZfyq5TrQboQmOYEzX053WqvygNPCCxqQ+iSYAuQxGpsx1f5WUtF8bCw==
+  version "5.5.5"
+  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-5.5.5.tgz#7f1710ad83bbd85eb8e616a449b8da0eb37266e7"
+  integrity sha512-vWglkVfumjnI53/tV+RMWbDuQL4ldGqc/wFX2EHkMy9sSV7Q0TQK+HcAtmg2QupI8DpcyNpoe2mNhaO/H4ILUg==
   dependencies:
     "@types/readable-stream" "^4.0.5"
     "@types/ws" "^8.5.9"
@@ -7126,9 +7126,9 @@ ws@^7.5.5:
   integrity sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==
 
 ws@^8.14.2:
-  version "8.16.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-8.16.0.tgz#d1cd774f36fbc07165066a60e40323eab6446fd4"
-  integrity sha512-HS0c//TP7Ina87TfiPUz1rQzMhHrl/SG2guqRcTOIUYD2q8uhUdNHZYJUaQ8aTGPzCh+c6oawMKW35nFl1dxyQ==
+  version "8.17.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.17.0.tgz#d145d18eca2ed25aaf791a183903f7be5e295fea"
+  integrity sha512-uJq6108EgZMAl20KagGkzCKfMEjxmKvZHG7Tlq0Z6nOky7YF7aq4mOx6xK8TJ/i1LeK4Qus7INktacctDgY8Ow==
 
 xml-writer@^1.7.0:
   version "1.7.0"
