@@ -1,4 +1,4 @@
-FROM node:21-alpine AS build
+FROM node:22-alpine AS build
 
 WORKDIR /usr/src/app
 
@@ -20,7 +20,7 @@ USER node
 # PRODUCTION
 ###################
 
-FROM node:21-alpine As production
+FROM node:22-alpine As production
 RUN apk add openssl
 
 # Copy the bundled code from the build stage to the production image
