@@ -907,13 +907,13 @@
     webpack-node-externals "3.0.0"
 
 "@nestjs/common@^10.0.0":
-  version "10.4.9"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-10.4.9.tgz#addf28b78265b28debfb7d0e5ea2e826d7828bce"
-  integrity sha512-bVUIeCr22T3xxivzLEj54ouxt9vHnatapeM+DEdusz1X62kGiK9Q8c9AQDrIOAhv/wBXqvDXoaq2exGZ6WOnmA==
+  version "10.4.12"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-10.4.12.tgz#9ba742e910df30c475b00132c6734c8bedaa6241"
+  integrity sha512-+aQw1d1cV9MtjSSCoXA2iZf+EBJANyjTC9d0j38bUAHhaPQinRlgM81F91DFYZoYcYVOY4hJd+DDYRFGoN7j7Q==
   dependencies:
     uid "2.0.2"
     iterare "1.2.1"
-    tslib "2.7.0"
+    tslib "2.8.1"
 
 "@nestjs/config@^3.0.0":
   version "3.3.0"
@@ -925,27 +925,27 @@
     lodash "4.17.21"
 
 "@nestjs/core@^10.0.0":
-  version "10.4.9"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-10.4.9.tgz#a4299edaf76849d046093efb572c9da5eef7b22a"
-  integrity sha512-ZrbnK67U5T1296tmhxYSdsWkZjLe+MX7FGuRtSjkl02INIYA+4lfV+igZjGc+dyhWkkdvmIg3khSfwoBNjxLWg==
+  version "10.4.12"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-10.4.12.tgz#b784849df4edd4f2287e33dec4ad5ea0ca623b02"
+  integrity sha512-2qENES1U0VxCOfW45jVIV7g38edcvuU5aaLpZWOhb3nzehdvmeYoovUe8LTTHFrLWsDVY1v9FPfEhFQGsZfopQ==
   dependencies:
     uid "2.0.2"
     "@nuxtjs/opencollective" "0.3.2"
     fast-safe-stringify "2.1.1"
     iterare "1.2.1"
     path-to-regexp "3.3.0"
-    tslib "2.7.0"
+    tslib "2.8.1"
 
 "@nestjs/platform-express@^10.0.0":
-  version "10.4.9"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-10.4.9.tgz#6d208004976dfbc609c9e023e3c018509dbe6606"
-  integrity sha512-1nsIihF78W+u3pv8pVA75Zjs25w+yP0M/0jjMxL1BoCKEWCI4aL43kClP/C0csh6MvQjv67H1/AMAzs0rYbm9w==
+  version "10.4.12"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-10.4.12.tgz#2a9c3ee053b29083e154d6622b8ded4e284da894"
+  integrity sha512-+m8BQas9mnY29Y6rZv8EUqIYwcta99/dTiGIUy48LB/+YoAyDTEHpsLd2+rpetk54niGgKJYclCZRUwRcjrYYA==
   dependencies:
     body-parser "1.20.3"
     cors "2.8.5"
     express "4.21.1"
     multer "1.4.4-lts.1"
-    tslib "2.7.0"
+    tslib "2.8.1"
 
 "@nestjs/schematics@^10.0.0", "@nestjs/schematics@^10.0.1":
   version "10.2.3"
@@ -959,11 +959,11 @@
     pluralize "8.0.0"
 
 "@nestjs/testing@^10.0.0":
-  version "10.4.9"
-  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-10.4.9.tgz#c826d9df6be6a573c12ac4ce135f9c5be1a57aff"
-  integrity sha512-+zkhjXluB3nnZgOjLoyjFQkpVUMqtsZhyVw8mlfxtOc6DHTtColhzX/iCQHGyTXQRIvBbBYmJc6qI+DKfOfLvg==
+  version "10.4.12"
+  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-10.4.12.tgz#33e0bf6bd885c6e2f88a40c3eb086283a044558a"
+  integrity sha512-Q1ZpzmIqzem6Q9pBwT1qQRYE050HhvSh8U7AbdIavOHCI063GbXOy/erXEpUnE0o46mqT+y88Nn9NjTXAQt4nQ==
   dependencies:
-    tslib "2.7.0"
+    tslib "2.8.1"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -3299,7 +3299,7 @@ get-caller-file@^2.0.5:
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
 
-get-intrinsic@^1.1.3, get-intrinsic@^1.2.4:
+get-intrinsic@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/get-intrinsic/-/get-intrinsic-1.2.4.tgz#e385f5a4b5227d449c3eabbad05494ef0abbeadd"
   integrity sha512-5uYhsJH8VJBTv7oslg4BznJYhDoRI6waYCxMmCdnTrcCrHA/fCFKoTFz2JKKE0HdDFUF7/oQuhzumXJK7paBRQ==
@@ -3391,11 +3391,11 @@ globals@^14.0.0:
   integrity sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==
 
 gopd@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/gopd/-/gopd-1.0.1.tgz#29ff76de69dac7489b7c0918a5788e56477c332c"
-  integrity sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gopd/-/gopd-1.1.0.tgz#df8f0839c2d48caefc32a025a49294d39606c912"
+  integrity sha512-FQoVQnqcdk4hVM4JN1eromaun4iuS34oStkdlLENLdpULsuQcTyXj8w7ayhuUfPwEYZ1ZOooOTT6fdA9Vmx/RA==
   dependencies:
-    get-intrinsic "^1.1.3"
+    get-intrinsic "^1.2.4"
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.11, graceful-fs@^4.2.4, graceful-fs@^4.2.9:
   version "4.2.11"
@@ -3430,9 +3430,11 @@ has-property-descriptors@^1.0.0, has-property-descriptors@^1.0.2:
     es-define-property "^1.0.0"
 
 has-proto@^1.0.1:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/has-proto/-/has-proto-1.0.3.tgz#b31ddfe9b0e6e9914536a6ab286426d0214f77fd"
-  integrity sha512-SJ1amZAJUiZS+PhsVLf5tGydlaVB8EdFpaSO4gmiUKUOxk8qzn5AIy4ZeJUmh22znIdk/uMAUT2pl3FxzVUH+Q==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/has-proto/-/has-proto-1.1.0.tgz#deb10494cbbe8809bce168a3b961f42969f5ed43"
+  integrity sha512-QLdzI9IIO1Jg7f9GT1gXpPpXArAn6cS31R1eEZqz08Gc+uQ8/XiqHWt17Fiw+2p6oTTIq5GXEpQkAlA88YRl/Q==
+  dependencies:
+    call-bind "^1.0.7"
 
 has-symbols@^1.0.3:
   version "1.0.3"
@@ -6786,20 +6788,15 @@ tsconfig-paths@4.2.0, tsconfig-paths@^4.1.2:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tslib@2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.7.0.tgz#d9b40c5c40ab59e8738f297df3087bf1a2690c01"
-  integrity sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==
+tslib@2.8.1, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.4.0, tslib@^2.6.1, tslib@^2.6.2, tslib@^2.7.0:
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
+  integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
 
 tslib@^1.9.3:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
-
-tslib@^2.0.0, tslib@^2.1.0, tslib@^2.4.0, tslib@^2.6.1, tslib@^2.6.2, tslib@^2.7.0:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
-  integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
 
 tsyringe@^4.8.0:
   version "4.8.0"
