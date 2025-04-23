@@ -327,14 +327,7 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@eslint-community/eslint-utils@^4.2.0":
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.6.1.tgz#e4c58fdcf0696e7a5f19c30201ed43123ab15abc"
-  integrity sha512-KTsJMmobmbrFLe3LDh0PC2FXpcSYJt/MLjlkh/9LEnmKYLSYmT/0EW9JWANjeoemiuZrmogti0tW5Ch+qNUYDw==
-  dependencies:
-    eslint-visitor-keys "^3.4.3"
-
-"@eslint-community/eslint-utils@^4.4.0":
+"@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.6.1.tgz#e4c58fdcf0696e7a5f19c30201ed43123ab15abc"
   integrity sha512-KTsJMmobmbrFLe3LDh0PC2FXpcSYJt/MLjlkh/9LEnmKYLSYmT/0EW9JWANjeoemiuZrmogti0tW5Ch+qNUYDw==
@@ -1395,7 +1388,7 @@
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.7.tgz#50ae4353eaaddc04044279812f52c8c65857dbcb"
   integrity sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==
 
-"@types/readable-stream@^4.0.0", "@types/readable-stream@^4.0.18":
+"@types/readable-stream@^4.0.0":
   version "4.0.18"
   resolved "https://registry.yarnpkg.com/@types/readable-stream/-/readable-stream-4.0.18.tgz#5d8d15d26c776500ce573cae580787d149823bfc"
   integrity sha512-21jK/1j+Wg+7jVw1xnSwy/2Q1VgVjWuFssbYGTREPUBeZ+rqVFl2udq0IkxzPC0ZhOzVceUbyIACFZKLqKEBlA==
@@ -1460,13 +1453,6 @@
   dependencies:
     "@types/methods" "^1.1.4"
     "@types/superagent" "^8.1.0"
-
-"@types/ws@^8.5.14":
-  version "8.18.1"
-  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.18.1.tgz#48464e4bf2ddfd17db13d845467f6070ffea4aa9"
-  integrity sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==
-  dependencies:
-    "@types/node" "*"
 
 "@types/yargs-parser@*":
   version "21.0.3"
@@ -4413,12 +4399,10 @@ mqtt@^4.3.7:
     xtend "^4.0.2"
 
 mqtt@^5.0.0:
-  version "5.11.0"
-  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-5.11.0.tgz#b0a71a1d670a08cd3d64bb1c2ad4181cd50ee31d"
-  integrity sha512-VDqfADTNvohwcY02NgxPb7OojIeDrNQ1q62r/DcM+bnIWY8LBi3nMTvdEaFEp6Bu4ejBIpHjJVthUEgnvGLemA==
+  version "5.11.1"
+  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-5.11.1.tgz#9b130e83e75f94ae19f87995522f37c2cb0e8916"
+  integrity sha512-GHDhnWW/npS6KTnmfcbmfIC9GNkNt7bx7AL6M4TUAIPbBNA454LTYXyp09P0OcaDuSrWS9U0XXicuRgBslbdhA==
   dependencies:
-    "@types/readable-stream" "^4.0.18"
-    "@types/ws" "^8.5.14"
     commist "^3.2.0"
     concat-stream "^2.0.0"
     debug "^4.4.0"
@@ -4428,7 +4412,6 @@ mqtt@^5.0.0:
     mqtt-packet "^9.0.2"
     number-allocator "^1.0.14"
     readable-stream "^4.7.0"
-    reinterval "^1.1.0"
     rfdc "^1.4.1"
     socks "^2.8.3"
     split2 "^4.2.0"
