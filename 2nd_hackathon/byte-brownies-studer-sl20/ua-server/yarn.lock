@@ -4861,9 +4861,9 @@ mqtt@^4.3.7:
     xtend "^4.0.2"
 
 mqtt@^5.0.0:
-  version "5.13.2"
-  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-5.13.2.tgz#5ae0288e699ddab688e485c93eb0f193584c985d"
-  integrity sha512-21E15qjFMNEddowGtLiMw4wXfzZxd3Iv+q+zC+tJSmY0flEreNgov+8SKrYcapA+pjClaqj+IgJW0jsJsHkmVQ==
+  version "5.13.3"
+  resolved "https://registry.yarnpkg.com/mqtt/-/mqtt-5.13.3.tgz#47a37afca2b8deb2e4d8ff6b0d8bc7b57b8ca075"
+  integrity sha512-91x03kh1+vBBA51OMNbEw2fymXfaUjpHkC0NcMckg9Vf6ee/GrM/HXfE8XeeziHQpJL8adr+9ThTbN5v/WmrRA==
   dependencies:
     "@types/readable-stream" "^4.0.18"
     "@types/ws" "^8.18.1"
@@ -6599,9 +6599,9 @@ smart-buffer@^4.2.0:
   integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
 
 socks@^2.8.3:
-  version "2.8.5"
-  resolved "https://registry.yarnpkg.com/socks/-/socks-2.8.5.tgz#bfe18f5ead1efc93f5ec90c79fa8bdccbcee2e64"
-  integrity sha512-iF+tNDQla22geJdTyJB1wM/qrX9DMRwWrciEPwWLPRWAUEM8sQiyxgckLxWT1f7+9VabJS0jTGGr4QgBuvi6Ww==
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/socks/-/socks-2.8.6.tgz#e335486a2552f34f932f0c27d8dbb93f2be867aa"
+  integrity sha512-pe4Y2yzru68lXCb38aAqRf5gvN8YdjP1lok5o0J7BOHljkyCGKVz7H3vpVIXKD27rj2giOJ7DwVyk/GWrPHDWA==
   dependencies:
     ip-address "^9.0.5"
     smart-buffer "^4.2.0"
