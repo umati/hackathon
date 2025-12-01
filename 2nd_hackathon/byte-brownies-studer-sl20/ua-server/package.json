@@ -37,7 +37,7 @@
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
     "async-mqtt": "^2.6.3",
-    "express": "^5.0.0",
+    "express": "^5.2.0",
     "mqtt": "^5.0.0",
     "node-opcua": "^2.103.0",
     "reflect-metadata": "^0.2.0",
