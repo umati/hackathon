@@ -32,10 +32,10 @@
     "docker:up": "docker compose up"
   },
   "dependencies": {
-    "@nestjs/common": "11.1.15",
+    "@nestjs/common": "11.1.16",
     "@nestjs/config": "4.0.3",
-    "@nestjs/core": "11.1.15",
-    "@nestjs/platform-express": "11.1.15",
+    "@nestjs/core": "11.1.16",
+    "@nestjs/platform-express": "11.1.16",
     "async-mqtt": "2.6.3",
     "express": "5.2.1",
     "lodash": "4.17.23",
@@ -48,7 +48,7 @@
   "devDependencies": {
     "@nestjs/cli": "11.0.16",
     "@nestjs/schematics": "11.0.9",
-    "@nestjs/testing": "11.1.15",
+    "@nestjs/testing": "11.1.16",
     "@types/express": "^5.0.6",
     "@types/jest": "30.0.0",
     "@types/node": "25.3.3",
