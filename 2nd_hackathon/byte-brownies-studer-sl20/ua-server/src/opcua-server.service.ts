@@ -1,6 +1,9 @@
 import { Injectable, ConsoleLogger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { OpcuaServerConfig, OpcuaServerInfoConfig } from 'config/opcua.config';
+import {
+  OpcuaServerConfig,
+  OpcuaServerInfoConfig,
+} from '../config/opcua.config';
 import { AttributeIds, DataType, OPCUAServer, UAVariable } from 'node-opcua';
 import { catchError, from, tap } from 'rxjs';
 

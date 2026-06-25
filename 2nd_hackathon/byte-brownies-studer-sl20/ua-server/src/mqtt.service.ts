@@ -29,7 +29,11 @@ export class MqttService {
       try {
         await this._client.publish(topic, message);
       } catch (e) {
-        this._logger.log(e.stack);
+        if (e instanceof Error) {
+          this._logger.log(e.stack);
+        } else {
+          this._logger.log(String(e));
+        }
       }
     }
   }
