@@ -67,17 +67,40 @@ export class OpcuaFacadeService {
     switch (signal) {
       case Signal.SteuerungEin:
         console.log(signal, value);
-        if(value == true){
-          this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Initializing"}));
-          this._server.writeSingleNode(6, 6016, DataType.UInt32, ProductionState.Initializing);
+        if (value == true) {
+          this._server.writeSingleNode(
+            6,
+            6014,
+            DataType.LocalizedText,
+            new LocalizedText({ locale: 'en', text: 'Initializing' }),
+          );
+          this._server.writeSingleNode(
+            6,
+            6016,
+            DataType.UInt32,
+            ProductionState.Initializing,
+          );
         }
         break;
       case Signal.Notaus:
         console.log(signal, value);
         let readStatus = this._server.readSingleNode(6, 6016);
-        if(value === false && readStatus.value?.value === ProductionState.Running){
-          this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Aborted"}));
-          this._server.writeSingleNode(6, 6016, DataType.UInt32, ProductionState.Aborted);
+        if (
+          value === false &&
+          readStatus.value?.value === ProductionState.Running
+        ) {
+          this._server.writeSingleNode(
+            6,
+            6014,
+            DataType.LocalizedText,
+            new LocalizedText({ locale: 'en', text: 'Aborted' }),
+          );
+          this._server.writeSingleNode(
+            6,
+            6016,
+            DataType.UInt32,
+            ProductionState.Aborted,
+          );
         }
         break;
       case Signal.EnergieEin:
@@ -86,31 +109,61 @@ export class OpcuaFacadeService {
         break;
       case Signal.SpindelEin:
         console.log(signal, value);
-          this._server.writeSingleNode(6, 6023, DataType.Boolean, value);
+        this._server.writeSingleNode(6, 6023, DataType.Boolean, value);
         break;
       case Signal.WerkzeugSpindelEin:
         console.log(signal, value);
-          this._server.writeSingleNode(6, 6042, DataType.Boolean, value);
-          break;
+        this._server.writeSingleNode(6, 6042, DataType.Boolean, value);
+        break;
       case Signal.StartLader:
         console.log(signal, value);
-        if(value == true){
-          this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Ended"}));
-          this._server.writeSingleNode(6, 6016, DataType.UInt32, ProductionState.Ended);
+        if (value == true) {
+          this._server.writeSingleNode(
+            6,
+            6014,
+            DataType.LocalizedText,
+            new LocalizedText({ locale: 'en', text: 'Ended' }),
+          );
+          this._server.writeSingleNode(
+            6,
+            6016,
+            DataType.UInt32,
+            ProductionState.Ended,
+          );
         }
         break;
       case Signal.ZyklusStart:
         console.log(signal, value);
-        if(value == true){
-          this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Running"}));
-          this._server.writeSingleNode(6, 6016, DataType.UInt32, ProductionState.Running);
+        if (value == true) {
+          this._server.writeSingleNode(
+            6,
+            6014,
+            DataType.LocalizedText,
+            new LocalizedText({ locale: 'en', text: 'Running' }),
+          );
+          this._server.writeSingleNode(
+            6,
+            6016,
+            DataType.UInt32,
+            ProductionState.Running,
+          );
         }
         break;
       case Signal.ZyklusStopp:
         console.log(signal, value);
-        if(value == true){
-          this._server.writeSingleNode(6, 6014, DataType.LocalizedText, new LocalizedText({locale: "en", text: "Aborted"}));
-          this._server.writeSingleNode(6, 6016, DataType.UInt32, ProductionState.Aborted);
+        if (value == true) {
+          this._server.writeSingleNode(
+            6,
+            6014,
+            DataType.LocalizedText,
+            new LocalizedText({ locale: 'en', text: 'Aborted' }),
+          );
+          this._server.writeSingleNode(
+            6,
+            6016,
+            DataType.UInt32,
+            ProductionState.Aborted,
+          );
         }
         break;
     }
@@ -149,7 +202,7 @@ export class OpcuaFacadeService {
         id: 6023,
         dt: DataType.Boolean,
         value: false,
-      }
+      },
     ]);
   }
 }

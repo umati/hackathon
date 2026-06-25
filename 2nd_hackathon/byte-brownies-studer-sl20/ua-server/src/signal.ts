@@ -6,5 +6,5 @@ export enum Signal {
   WerkzeugSpindelEin = 8,
   ZyklusStopp = 9,
   ZyklusStart = 10,
-  StartLader = 14
+  StartLader = 14,
 }
