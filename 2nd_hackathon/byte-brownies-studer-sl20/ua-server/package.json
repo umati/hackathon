@@ -41,7 +41,7 @@
     "lodash": "4.18.1",
     "mqtt": "5.16.1",
     "multer": "2.5.0",
-    "node-opcua": "2.187.16",
+    "node-opcua": "2.187.17",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.2"
   },
